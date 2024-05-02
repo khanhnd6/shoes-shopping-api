@@ -1,0 +1,32 @@
+============= 2024-04-30T05:18:20.915Z GET /voucher/get-voucher 404 158 - 6.385 ms 
+
+
+
+============= 2024-04-30T05:20:47.634Z GET /voucher/get-voucher 200 55 - 462.284 ms 
+
+
+
+============= 2024-04-30T05:21:08.050Z GET /voucher/get-voucher 200 68 - 345.834 ms 
+
+
+
+============= 2024-04-30T05:21:25.550Z GET /voucher/get-voucher 200 2 - 217.571 ms 
+
+
+
+============= 2024-04-30T09:25:52.484Z GET /common/get-common-typ 404 160 - 3.432 ms 
+
+
+
+============= 2024-04-30T09:25:55.486Z GET /common/get-common-type 200 2 - 140.211 ms 
+
+
+
+============= 2024-04-30T09:26:31.428Z GET /common/get-common-type 200 1484 - 43.379 ms 
+
+
+
+============= 2024-04-30T09:26:56.776Z GET /common/get-common-type 200 573 - 35.227 ms 
+
+
+

@@ -1,0 +1,48 @@
+============= 2024-04-23T15:52:57.547Z PUT /product//show-hide-product 404 165 - 4.109 ms 
+
+
+
+============= 2024-04-23T15:53:06.826Z PUT /product/show-hide-product 404 164 - 1.480 ms 
+
+
+
+============= 2024-04-23T15:53:36.142Z PUT /product/show-hide-product 200 50 - 2.677 ms 
+
+
+
+============= 2024-04-23T15:53:53.609Z PUT /product/show-hide-product 200 69 - 4.005 ms 
+
+
+
+============= 2024-04-23T15:54:23.739Z PUT /product/show-hide-product 200 60 - 1.854 ms 
+
+
+
+============= 2024-04-23T15:54:39.599Z PUT /product/show-hide-product 200 52 - 134.655 ms 
+
+
+
+============= 2024-04-23T15:54:48.304Z PUT /product/show-hide-product 200 52 - 41.758 ms 
+
+
+
+============= 2024-04-23T15:55:30.721Z PUT /product/show-hide-product 200 52 - 125.747 ms 
+
+
+
+============= 2024-04-23T15:55:35.156Z PUT /product/show-hide-product 200 52 - 36.815 ms 
+
+
+
+============= 2024-04-23T15:55:50.815Z PUT /product/show-hide-product 200 52 - 118.292 ms 
+
+
+
+============= 2024-04-23T15:56:19.200Z PUT /product/show-hide-product 200 52 - 42.524 ms 
+
+
+
+============= 2024-04-23T15:57:17.266Z PUT /product/show-hide-product 200 52 - 133.281 ms 
+
+
+
