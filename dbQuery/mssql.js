@@ -2,6 +2,7 @@ const STOREPROCEDURES = {
     GETCATEGORY: "sp_get_category",
     
     GETPRODUCT: "sp_get_product",
+    GETPRODUCTOVR: "sp_get_product_ovr",
     GETPASSWORD: "sp_getPassword",
     LOGIN: "sp_login",
 

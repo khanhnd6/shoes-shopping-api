@@ -5,19 +5,19 @@ const SqlParameter = require('../models/param');
 const { sqlConnection } = require('../utils/dbUtils');
 const Response = require('../models/response');
 
-const getProduct = async (req, res) =>{
+const getProductDetails = async (req, res) =>{
 
     const {id = null, code = null, name = null, supplierId = null, supplier = null, categoryId = null, category = null, fromPrice = null, toPrice = null, isHidden = null} = req.body
     
 
     const params = [
         new SqlParameter('id', sql.Int, id),
-        new SqlParameter('code', sql.NVarChar, code),
-        new SqlParameter('name', sql.NVarChar, name),
+        new SqlParameter('code', sql.NVarChar(sql.MAX), code),
+        new SqlParameter('name', sql.NVarChar(sql.MAX), name),
         new SqlParameter('supplierId', sql.Int, supplierId),
-        new SqlParameter('supplier', sql.NVarChar, supplier),
+        new SqlParameter('supplier', sql.NVarChar(sql.MAX), supplier),
         new SqlParameter('categoryId', sql.Int, categoryId),
-        new SqlParameter('category', sql.NVarChar, category),
+        new SqlParameter('category', sql.NVarChar(sql.MAX), category),
         new SqlParameter('fromPrice', sql.Float, fromPrice),
         new SqlParameter('toPrice', sql.Float, toPrice),
         new SqlParameter('isHidden', sql.Bit, isHidden),
@@ -35,6 +35,38 @@ const getProduct = async (req, res) =>{
             res.json(new Response(-1, 'Error happened'))
         })
 }
+
+
+const getProduct = async (req, res) =>{
+
+    const { code = null, name = null, supplierId = null, supplier = null, categoryId = null, category = null, fromPrice = null, toPrice = null, isHidden = null} = req.body
+    
+
+    const params = [
+        new SqlParameter('name', sql.NVarChar(sql.MAX), name),
+        new SqlParameter('productCode', sql.NVarChar(sql.MAX), code),
+        new SqlParameter('fromPrice', sql.Float, fromPrice),
+        new SqlParameter('toPrice', sql.Float, toPrice),
+        new SqlParameter('supplierId', sql.Int, supplierId),
+        new SqlParameter('supplier', sql.NVarChar(sql.MAX), supplier),
+        new SqlParameter('categoryId', sql.Int, categoryId),
+        new SqlParameter('category', sql.NVarChar(sql.MAX), category),
+        new SqlParameter('isHidden', sql.Bit, isHidden),
+    ]
+
+    sqlConnection(sql, params, STOREPROCEDURES.GETPRODUCTOVR)
+        .then(output => {
+            
+            var recordSet = output.recordsets[0]
+
+            res.json(recordSet)
+        })
+        .catch(err => {
+            console.log('errr: ', err)
+            res.json(new Response(-1, 'Error happened'))
+        })
+}
+
 
 
 const updateProduct = async (req, res) =>{
@@ -254,6 +286,7 @@ const deleteProduct = async (req, res) => {
 
 module.exports = {
     getProduct,
+    getProductDetails,
     updateProduct,
     showHideProduct,
     addProduct,
