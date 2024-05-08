@@ -39,10 +39,27 @@ const getProductDetails = async (req, res) =>{
 
 const getProduct = async (req, res) =>{
 
-    const { code = null, name = null, supplierId = null, supplier = null, categoryId = null, category = null, fromPrice = null, toPrice = null, isHidden = null} = req.body
+    const { 
+        pageNum = 1,
+        pageSize = 10,
+        code = null, 
+        name = null, 
+        supplierId = null, 
+        supplier = null, 
+        categoryId = null, 
+        category = null, 
+        fromPrice = null, 
+        toPrice = null, 
+        isHidden = null
+    } = req.body
     
 
+    let offset = !pageNum || parseInt(pageNum) < 1 ? 0 : (parseInt(pageNum) - 1) * pageSize;
+    let fetchNext = pageSize < 0 ? 0 : parseInt(pageSize)
+
     const params = [
+        new SqlParameter("offset", sql.Int, offset),
+        new SqlParameter("fetchNext", sql.Int, fetchNext),
         new SqlParameter('name', sql.NVarChar(sql.MAX), name),
         new SqlParameter('productCode', sql.NVarChar(sql.MAX), code),
         new SqlParameter('fromPrice', sql.Float, fromPrice),
@@ -172,6 +189,73 @@ const showHideProduct = async (req, res) =>{
         })
 }
 
+// const addProduct = async (req, res) => {
+
+//     const { 
+//         productName = null,
+//         price = null,
+//         discount = null,
+//         code = null,
+//         size = null,
+//         quantity = null,
+//         color = null,
+//         description = null,
+//         unitPrice = null,
+//         supplierId = null,
+//         categoryId = null } = req.body
+
+
+    
+
+//     if(!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id || !res.locals.userData.user.isAdmin){
+//         res.json(new Response(-1, 'Unauthorized'))
+//         return
+//     }
+    
+//     if(!productName || !quantity || !color || !price || !supplierId || !categoryId || !unitPrice){
+//         res.json(new Response(-1, 'productName, quantity, color, price, supplierId, categoryId and unitPrice are required'))
+//         return
+//     }
+
+//     const params = [
+//         new SqlParameter('name', sql.NVarChar(200), productName),
+//         new SqlParameter('price', sql.Float, price),
+//         new SqlParameter('discount', sql.Float, discount),
+//         new SqlParameter('code', sql.NVarChar(15), code),
+//         new SqlParameter('size', sql.NVarChar(100), size),
+//         new SqlParameter('quantity', sql.Int, quantity),
+//         new SqlParameter('color', sql.NVarChar(50), color),
+//         new SqlParameter('description', sql.NVarChar(sql.MAX), description),
+//         new SqlParameter('unitPrice', sql.NVarChar(50), unitPrice),
+//         new SqlParameter('supplierId', sql.Int, supplierId),
+//         new SqlParameter('categoryId', sql.Int, categoryId),
+//         new SqlParameter('returnCode', sql.Int, null, 'OUTPUT'),
+//         new SqlParameter('returnMessage', sql.NVarChar(sql.MAX), null, 'OUTPUT'),
+//     ]
+
+
+    
+//     sqlConnection(sql, params, STOREPROCEDURES.ADMIN_ADDPRODUCT)
+//         .then(output => {
+//             var {returnCode, returnMessage} = output.output
+
+//             console.log(returnCode, returnMessage)
+
+//             if(parseInt(returnCode) == 0){
+//                 res.json(new Response(0, 'Success'))
+//                 return
+//             } 
+//             res.json(new Response(-1, returnMessage))
+//             return
+//         })
+//         .catch(err => {
+//             console.log('errr: ', err)
+//             res.json(new Response(-1, 'Error happened'))
+//         })
+
+// }
+
+
 const addProduct = async (req, res) => {
 
     const { 
@@ -187,9 +271,6 @@ const addProduct = async (req, res) => {
         supplierId = null,
         categoryId = null } = req.body
 
-
-    
-
     if(!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id || !res.locals.userData.user.isAdmin){
         res.json(new Response(-1, 'Unauthorized'))
         return
@@ -200,11 +281,20 @@ const addProduct = async (req, res) => {
         return
     }
 
+    
+    const files = req.files
+
+    const fullpaths = files.reduce((prev, curr)=> {
+        return prev +";/uploads/" +curr.filename
+    }, "").slice(1)
+
+
     const params = [
         new SqlParameter('name', sql.NVarChar(200), productName),
         new SqlParameter('price', sql.Float, price),
         new SqlParameter('discount', sql.Float, discount),
         new SqlParameter('code', sql.NVarChar(15), code),
+        new SqlParameter("productImages", sql.NVarChar(sql.MAX), files.length == 0 ? null : fullpaths),
         new SqlParameter('size', sql.NVarChar(100), size),
         new SqlParameter('quantity', sql.Int, quantity),
         new SqlParameter('color', sql.NVarChar(50), color),
@@ -237,6 +327,7 @@ const addProduct = async (req, res) => {
         })
 
 }
+
 
 
 const deleteProduct = async (req, res) => {

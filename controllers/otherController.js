@@ -115,4 +115,40 @@ const getCommonType = async (req, res) => {
     })
 }
 
-module.exports = {getVoucher, addVoucher, getCommonType}
+
+const getCustomer = async (req, res) => {
+    const {
+        name = null,
+        number = null,
+        city = null,
+        address = null,
+        region = null,
+    } = req.body
+
+    if(!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id || !res.locals.userData.user.isAdmin){
+        res.json(new Response(-1, 'Unauthorized'))
+        return
+    }
+
+    const params = [
+        new SqlParameter("name", sql.NVarChar(sql.MAX), name),
+        new SqlParameter("number", sql.NVarChar(sql.MAX), number),
+        new SqlParameter("city", sql.NVarChar(sql.MAX), city),
+        new SqlParameter("address", sql.NVarChar(sql.MAX), address),
+        new SqlParameter("region", sql.NVarChar(sql.MAX), region),
+    ]
+
+    sqlConnection(sql, params, STOREPROCEDURES.GETCUSTOMER)
+    .then(output => {
+        const result = output.recordsets[0]
+        res.json(result)
+        return 
+    })
+    .catch(err => {
+        res.json(new Response(-1, "error: " + err.message))
+        return
+    })
+
+}
+
+module.exports = {getVoucher, addVoucher, getCommonType, getCustomer}

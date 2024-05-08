@@ -30,7 +30,9 @@ const STOREPROCEDURES = {
 
     GETVOUCHER: "sp_get_voucher",
     GETCOMMON: "sp_get_common",
-    ADDVOUCHER: "sp_addVoucher"
+    ADDVOUCHER: "sp_addVoucher",
+
+    GETCUSTOMER: "sp_get_customer"
 
 }
 
