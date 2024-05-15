@@ -7,7 +7,7 @@ const Response = require('../models/response');
 
 const getProductDetails = async (req, res) =>{
 
-    const {id = null, code = null, name = null, supplierId = null, supplier = null, categoryId = null, category = null, fromPrice = null, toPrice = null, isHidden = null} = req.body
+    const {id = null, code = null, name = null, supplierId = null, supplier = null, categoryId = null, category = null, fromPrice = null, toPrice = null, isHidden = null} = req.query
     
 
     const params = [
@@ -51,7 +51,7 @@ const getProduct = async (req, res) =>{
         fromPrice = null, 
         toPrice = null, 
         isHidden = null
-    } = req.body
+    } = req.query
     
 
     let offset = !pageNum || parseInt(pageNum) < 1 ? 0 : (parseInt(pageNum) - 1) * pageSize;

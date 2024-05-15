@@ -12,7 +12,7 @@ const getVoucher = async (req, res) => {
         voucherType = null,
         fromExpiredTime = null,
         toExpiredTime = null
-    } = req.body
+    } = req.query
 
     const params = [
         new SqlParameter("id", sql.Int, voucherId),
@@ -103,7 +103,7 @@ const addVoucher = async (req, res) => {
 }
 
 const getCommonType = async (req, res) => {
-    const {type = null} = req.body
+    const {type = null} = req.query
     const params = [new SqlParameter("type", sql.NVarChar(sql.MAX), type)]
     sqlConnection(sql, params, STOREPROCEDURES.GETCOMMON)
     .then(output => {
@@ -123,7 +123,7 @@ const getCustomer = async (req, res) => {
         city = null,
         address = null,
         region = null,
-    } = req.body
+    } = req.query
 
     if(!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id || !res.locals.userData.user.isAdmin){
         res.json(new Response(-1, 'Unauthorized'))
