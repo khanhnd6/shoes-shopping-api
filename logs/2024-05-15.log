@@ -1,0 +1,132 @@
+============= 2024-05-15T17:19:53.751Z GET /product/get-product-details?code=SP0002 304  - 2669.681 ms 
+
+
+
+============= 2024-05-15T17:20:48.319Z GET /product/get-product-details?code=testcode 304  - 2518.343 ms 
+
+
+
+============= 2024-05-15T17:37:26.936Z GET /product/get-product-details?code=testcode 304  - 2501.506 ms 
+
+
+
+============= 2024-05-15T17:37:57.184Z GET /product/get-product-details?code=Testcode 200 452 - 2343.236 ms 
+
+
+
+============= 2024-05-15T17:38:49.108Z GET /product/get-product-details?code=testcode 304  - 2415.014 ms 
+
+
+
+============= 2024-05-15T17:39:49.893Z GET /product/get-product-details?code=testcode 304  - 2408.227 ms 
+
+
+
+============= 2024-05-15T17:41:26.232Z GET /product/get-product-details?code=testcode 304  - 2509.542 ms 
+
+
+
+============= 2024-05-15T17:42:10.635Z GET /product/get-product-details?code=testcode 304  - 2523.044 ms 
+
+
+
+============= 2024-05-15T17:43:08.409Z GET /product/get-product-details?code=testcode 304  - 2434.560 ms 
+
+
+
+============= 2024-05-15T17:44:39.934Z GET /product/get-product-details?code=testcode 304  - 3310.524 ms 
+
+
+
+============= 2024-05-15T17:45:26.311Z GET /product/get-product-details?code=testcode 304  - 2374.440 ms 
+
+
+
+============= 2024-05-15T17:46:18.863Z GET /product/get-product-details?code=testcode 304  - 2391.178 ms 
+
+
+
+============= 2024-05-15T17:47:27.227Z GET /product/get-product-details?code=testcode 304  - 2384.758 ms 
+
+
+
+============= 2024-05-15T17:48:17.619Z GET /product/get-product-details?code=testcode 304  - 2353.412 ms 
+
+
+
+============= 2024-05-15T17:48:41.528Z GET /product/get-product-details?code=testcode 304  - 2484.245 ms 
+
+
+
+============= 2024-05-15T17:49:07.634Z GET /product/get-product-details?code=testcode 304  - 2346.835 ms 
+
+
+
+============= 2024-05-15T17:57:36.001Z GET /product/get-product 304  - 2476.719 ms 
+
+
+
+============= 2024-05-15T17:57:43.523Z GET /product/get-product-details?code=SP0001 304  - 2237.965 ms 
+
+
+
+============= 2024-05-15T17:57:59.920Z GET /product/get-product-details?code=testcode 304  - 2412.055 ms 
+
+
+
+============= 2024-05-16T02:54:13.308Z GET /product/get-product 304  - 2693.594 ms 
+
+
+
+============= 2024-05-16T02:54:33.050Z GET /product/get-product-details?code=testcode 304  - 4672.822 ms 
+
+
+
+============= 2024-05-16T02:57:28.021Z GET /product/get-product-details?code=testcode 304  - 5180.191 ms 
+
+
+
+============= 2024-05-16T02:57:45.108Z GET /product/get-product-details?code=SP0002 304  - 5794.903 ms 
+
+
+
+============= 2024-05-16T03:05:32.075Z GET /product/get-product-details?code=testcode 304  - 5774.969 ms 
+
+
+
+============= 2024-05-16T03:05:52.682Z GET /product/get-product-details?code=sp0002 304  - 6658.590 ms 
+
+
+
+============= 2024-05-16T03:06:58.652Z GET /product/get-product 304  - 5475.574 ms 
+
+
+
+============= 2024-05-16T03:12:49.257Z GET /product/get-product 304  - 6749.286 ms 
+
+
+
+============= 2024-05-16T03:20:18.732Z GET /product/get-product 200 2448 - 5719.282 ms 
+
+
+
+============= 2024-05-16T03:21:23.240Z GET /product/get-product-details?code=SP0002 200 3229 - 9697.534 ms 
+
+
+
+============= 2024-05-16T03:22:12.335Z GET /product/get-product?code=SP0002 200 203 - 7266.023 ms 
+
+
+
+============= 2024-05-16T03:23:26.657Z GET /product/get-product?supplierId=9 200 2442 - 6136.706 ms 
+
+
+
+============= 2024-05-16T04:05:37.082Z GET /product/get-product 304  - 5796.864 ms 
+
+
+
+============= 2024-05-16T04:05:49.836Z GET /product/get-product-details?code=SP0003 304  - 5408.557 ms 
+
+
+
