@@ -59,6 +59,10 @@ app.use('/', accountRoutes)
 app.use('/', otherRoutes)
 
 
+app.get("/test", (req, res) =>{
+  res.json("test ok")
+})
+
 app.listen(PORT, () => {
     console.log(`Server is running on: http://localhost:${PORT}`);
 });
