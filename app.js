@@ -58,6 +58,9 @@ app.use('/order', orderRoutes)
 app.use('/', accountRoutes)
 app.use('/', otherRoutes)
 
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
 
 app.get("/test", (req, res) =>{
   res.json("test ok")
