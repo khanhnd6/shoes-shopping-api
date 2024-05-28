@@ -6,7 +6,7 @@ const { sqlConnection } = require('../utils/dbUtils')
 const Response = require('../models/response')
 
 const getCategory = async (req, res) => {
-    const {category = null, categoryId = null} = req.body
+    const {category = null, categoryId = null} = req.query
 
     var params = [
         new SqlParameter('category', sql.NVarChar(100), category),

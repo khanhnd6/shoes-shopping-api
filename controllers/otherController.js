@@ -4,6 +4,10 @@ const SqlParameter = require('../models/param');
 const { sqlConnection } = require('../utils/dbUtils');
 const Response = require('../models/response');
 const { isAllNumber } = require('../utils/utils');
+const { getCaching } = require('../services/redisCachingService');
+const { genarateCode } = require('../utils/redisCaching');
+const { sendRecoverringPasswordMail } = require('./emailController');
+const nodemailer = require("nodemailer")
 
 const getVoucher = async (req, res) => {
     const {
@@ -148,7 +152,153 @@ const getCustomer = async (req, res) => {
         res.json(new Response(-1, "error: " + err.message))
         return
     })
+}
+
+
+
+const getSupplier = async (req, res) => {
+    const {supplier = null, supplierId = null} = req.query
+
+    var params = [
+        new SqlParameter('name', sql.NVarChar(100), supplier),
+        new SqlParameter('id', sql.Int, supplierId)
+    ]
+
+    sqlConnection(sql, params, STOREPROCEDURES.GETSUPPLIER)
+        .then(output =>{
+            let recordSet = output.recordsets[0]
+            res.json(recordSet)
+        })
+        .catch(err => {
+            console.log(err)
+            res.json(new Response(-1, 'Error happened'))
+        })
+}
+
+
+const getRecoverringEmail = async (req, res) => {
+    const {username = null} = req.query
+
+    if(username == null){
+        res.json(new Response(-1, "username cannot be null"))
+    }
+
+    var params = [
+        new SqlParameter('username', sql.VarChar(50), username),
+        new SqlParameter('email', sql.NVarChar(sql.MAX), null, "OUTPUT"),
+    ]
+
+    sqlConnection(sql, params, STOREPROCEDURES.GETEMAIL)
+        .then(output =>{
+            const email = output.output.email
+            if(email == null){
+                res.json(new Response(-1, 'Wrong username'))
+                return
+            }
+            res.json(new Response(-1, 'Success', {email}))
+            return
+        })
+        .catch(err => {
+            console.log(err)
+            res.json(new Response(-1, 'Error happened'))
+            return
+        })
+}
+
+
+const verifyAndRecoverPassword = async (req, res) => {
+    const {username = null, code = null} = req.body
+
+    if(username == null || code == null){
+        res.json(new Response(-1, 'username or code not found'))
+        return
+    }
+
+    let redisVal = await getCaching("RECOVER:"+username);
+    
+    if(!redisVal){
+        res.json(new Response(-1, 'username not found or your code expired'))
+        return
+    }
+
+    redisVal = JSON.parse(redisVal);
+
+    if(redisVal.username == username && redisVal.code == code){
+        
+        const newPassword = genarateCode(10)
+
+        const params = [
+            new SqlParameter("username", sql.VarChar(50), username),
+            new SqlParameter("password", sql.VarChar(100), newPassword),    
+            new SqlParameter("returnCode", sql.Int, null, "OUTPUT"),
+            new SqlParameter("returnMessage", sql.NVarChar(sql.MAX), null, "OUTPUT"),
+            new SqlParameter("mailTo", sql.NVarChar(sql.MAX), null, "OUTPUT")
+        ]
+        
+        sqlConnection(sql, params, STOREPROCEDURES.CHANGEPASSWORD)
+        .then(output => {
+            const {returnCode, returnMessage, mailTo} = output.output
+            if(returnCode == 0){        
+         
+                res.json(new Response(0, "CHECK YOUR EMAIL FOR YOUR NEW GENARATED PASSWORD, we will send it in second"))
+
+                var transporter =  nodemailer.createTransport({ 
+                    host: process.env.TRANSPORT_HOST,
+                    port: process.env.TRANSPORT_PORT,
+                    secure: true,
+                    auth: {
+                        user: process.env.SENDER_USERNAME,
+                        pass: process.env.SENDER_PASSWORD
+                    },
+                });
+
+                var content = '';
+                content += `
+                    <div style="padding: 10px; background-color: #003375">
+                        <div style="padding: 10px; background-color: white;">
+                            <h4 style="color: red; font-size: 30px; text-align: center;">YOUR NEW PASSWORD</h4>
+                            <div>
+                                <p style="color: #003375; font-size: 16px;">
+                                    Chúng tôi cung cấp cho bạn mật khẩu mới hệ thống ShoesShopping, đổi lại mật khẩu nếu cần thiết.
+                                </p>
+                                <p>Mật khẩu của bạn là: </p>
+                                <div style="text-align: center; margin: 40px 0 20px 0;">
+                                    <span style="background-color: #003375; color: white; font-size: 17px; font-weight: bold; text-align: center;padding: 20px 40px;">
+                                        ${newPassword}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                var mainOptions = {
+                    to: mailTo,
+                    subject: 'Your new genarated pasword',
+                    html: content
+                }
+                
+                            
+                transporter.sendMail(mainOptions)
+
+            } 
+            else {    
+                res.json(new SqlParameter(-1, returnMessage))
+            }
+        })
+        .catch(err => {
+            console.log(err)
+            res.json(new Response(-1, "error: " + err.message))
+            return
+        })
+        
+    } else {    
+        res.json(new Response(-1, 'wrong username/code'))
+        return
+    }
 
 }
 
-module.exports = {getVoucher, addVoucher, getCommonType, getCustomer}
+
+
+
+module.exports = {getVoucher, addVoucher, getCommonType, getCustomer, getSupplier, getRecoverringEmail, verifyAndRecoverPassword}

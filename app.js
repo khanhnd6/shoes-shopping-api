@@ -3,6 +3,7 @@ const fs = require('fs')
 const morgan = require('morgan')
 const path = require('path')
 const cors = require('cors')
+const redis = require("redis")
 
 
 const bodyParser = require("body-parser")
@@ -15,6 +16,7 @@ const accountRoutes = require('./routes/accountRoutes')
 const cartRoutes = require('./routes/cartRoutes')
 const orderRoutes = require('./routes/orderRoutes')
 const otherRoutes = require('./routes/otherRoutes')
+const emailRoutes = require('./routes/emailRoutes')
 
 const app = express()
 const PORT = process.env.PORT ||  3000
@@ -47,13 +49,14 @@ app.use(morgan(function (tokens, req, res) {
     ].join(' ')
   }, { stream: accessLogStream }))
 
-
-
+  
 
 app.use('/product', productRoutes)
 app.use('/category', categoryRoutes)
 app.use('/cart', cartRoutes)
 app.use('/order', orderRoutes)
+
+app.use("/email", emailRoutes)
 
 app.use('/', accountRoutes)
 app.use('/', otherRoutes)

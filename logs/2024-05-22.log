@@ -1,8 +1,0 @@
-============= 2024-05-22T15:52:16.129Z GET /product/get-product?supplierId=9 200 2442 - 3181.894 ms 
-
-
-
-============= 2024-05-22T15:52:27.877Z GET /product/get-product?supplier=nike 200 2442 - 2808.836 ms 
-
-
-

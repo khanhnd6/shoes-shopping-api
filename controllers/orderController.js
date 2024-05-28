@@ -195,20 +195,53 @@ const getOrders = async (req, res) => {
 
 }
 
+
+const getOrdersAdmin = async (req, res) => {
+    if(!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id || !res.locals.userData.user.isAdmin){
+        res.json(new Response(-1, 'Unauthorized'))
+        return
+    }
+
+    const {id = null} = req.query 
+
+    const params = [new SqlParameter("id", sql.Int, id)]
+
+    sqlConnection(sql, params, STOREPROCEDURES.ADMIN_GETORDERS)
+        .then(output => {
+            const result = output.recordsets[0]
+            res.json(result)
+            return
+        })
+        .catch(err => {
+            res.json(new Response(-1, 'Error: ' + err))
+            return
+        })
+
+}
+
+
 const getOrderItems = async (req, res) => {
     if(!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id ){
         res.json(new Response(-1, 'Unauthorized'))
         return
     }
-    
-    if(res.locals.userData.user.isAdmin){
-        res.json(new Response(-1, "Admin is not privided"))
-        return
-    }
 
     const customerId = res.locals.userData.user.id
+
+    let params = [new SqlParameter("customerId", sql.Int, customerId)]
+
+    if(res.locals.userData.user.isAdmin){
+        const {orderId = null} = req.query
+        if(orderId == null){
+            res.json(new Response(-1, 'orderId is not null'))
+            return;
+        } 
+
+        params = [new SqlParameter("orderId", sql.Int, orderId)]
+
+    }
+
     
-    const params = [new SqlParameter("customerId", sql.Int, customerId)]
 
     sqlConnection(sql, params, STOREPROCEDURES.GETORDERITEMS)
         .then(output => {
@@ -269,4 +302,4 @@ const cancelOrder = async (req, res) => {
 
 
 
-module.exports = {makingOrderFromCart, makingOrderQuickly, getOrderItems, getOrders, cancelOrder}
+module.exports = {makingOrderFromCart, makingOrderQuickly, getOrderItems, getOrders, cancelOrder, getOrdersAdmin}

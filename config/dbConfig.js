@@ -1,3 +1,4 @@
+const redis = require("redis")
 require('dotenv').config(); 
 
 var mssqlDBConfig = {
@@ -9,24 +10,13 @@ var mssqlDBConfig = {
     trustServerCertificate: true,
 }
 
-
-// const server = process.env.AZURE_SQL_SERVER;
-// const database = process.env.AZURE_SQL_DATABASE;
-// const port = parseInt(process.env.AZURE_SQL_PORT);
-// const user = process.env.AZURE_SQL_USER;
-// const password = process.env.AZURE_SQL_PASSWORD;
-
-// const mssqlDBConfig = {
-//     server,
-//     port,
-//     database,
-//     user,
-//     password,
-//     options: {
-//         encrypt: true
-//     }
-// };
+const redisClientConfig = {
+    url: `rediss://${process.env.REDIS_HOST}:${process.env.REDIS_PORT}`,
+    password: process.env.REDIS_PASSWORD
+    // host: process.env.REDIS_HOST,
+    // port: process.env.REDIS_PORT,
+    // password: process.env.REDIS_PASSWORD
+};
 
 
-
-module.exports = {mssqlDBConfig}
+module.exports = {mssqlDBConfig, redisClientConfig}

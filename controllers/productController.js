@@ -50,6 +50,7 @@ const getProduct = async (req, res) =>{
         category = null, 
         fromPrice = null, 
         toPrice = null, 
+        sortBy = null,
         isHidden = null
     } = req.query
     
@@ -68,15 +69,18 @@ const getProduct = async (req, res) =>{
         new SqlParameter('supplier', sql.NVarChar(sql.MAX), supplier),
         new SqlParameter('categoryId', sql.Int, categoryId),
         new SqlParameter('category', sql.NVarChar(sql.MAX), category),
+        new SqlParameter("sortBy", sql.NVarChar(sql.MAX), sortBy),
         new SqlParameter('isHidden', sql.Bit, isHidden),
+        new SqlParameter("totalRows", sql.Int, null, "OUTPUT")
     ]
 
     sqlConnection(sql, params, STOREPROCEDURES.GETPRODUCTOVR)
         .then(output => {
             
+
             var recordSet = output.recordsets[0]
 
-            res.json(recordSet)
+            res.json({total: output.output.totalRows, data: recordSet})
         })
         .catch(err => {
             console.log('errr: ', err)

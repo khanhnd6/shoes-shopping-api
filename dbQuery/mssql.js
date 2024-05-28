@@ -25,14 +25,19 @@ const STOREPROCEDURES = {
     ADMIN_HIDEPRODUCT: "sp_hide_product",
     ADMIN_ADDPRODUCT: "sp_insert_product",
     ADMIN_DELETEPRODUCT: "sp_delete_product",
-
+    ADMIN_GETORDERS: "sp_getOrder_admin",
+    
     REGISTER: "sp_register",
 
     GETVOUCHER: "sp_get_voucher",
     GETCOMMON: "sp_get_common",
     ADDVOUCHER: "sp_addVoucher",
 
-    GETCUSTOMER: "sp_get_customer"
+    GETCUSTOMER: "sp_get_customer",
+
+    GETSUPPLIER: "sp_get_supplier",
+    GETEMAIL: "sp_get_customer_email",
+    CHANGEPASSWORD: "sp_change_password"
 
 }
 
