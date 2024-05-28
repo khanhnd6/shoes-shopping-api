@@ -100,6 +100,7 @@ const updateProduct = async (req, res) =>{
         quantity = null,
         description = null,
         unitPrice = null,
+        productImages = null
     } = req.body
     
     if(!productId){
@@ -120,6 +121,7 @@ const updateProduct = async (req, res) =>{
         new SqlParameter('quantity', sql.Int, quantity),
         new SqlParameter('description', sql.NVarChar(sql.MAX), description),
         new SqlParameter('unitPrice', sql.NVarChar(50), unitPrice),
+        new SqlParameter("productImages", sql.NVarChar(sql.MAX), productImages),
         new SqlParameter('returnCode', sql.Int, null, 'OUTPUT'),
         new SqlParameter('returnMessage', sql.NVarChar(sql.MAX), null, 'OUTPUT'),
     ]

@@ -28,14 +28,16 @@ const login = async (req, res) => {
         new SqlParameter('id', mssql.Int,null, 'OUTPUT'),
         new SqlParameter('firstName', mssql.NVarChar(100),null, 'OUTPUT'),
         new SqlParameter('lastName', mssql.NVarChar(100),null, 'OUTPUT'),
+        new SqlParameter('email', mssql.NVarChar(mssql.MAX),null, 'OUTPUT'),
     ]
 
     sqlConnection(mssql, params, STOREPROCEDURES.LOGIN)
         .then(output => {
-            const {returnCode, id, firstName, lastName} = output.output
+            const {returnCode, id, firstName, lastName, email} = output.output
             if(parseInt(returnCode) == 0){
                 const accessToken = genarateAccessToken(username, password, id)
-                res.json(new Response(0, 'Loggin sucessfully', {username, password, id, token: accessToken}))
+                console.log({username, password, id, token: accessToken, firstName, lastName, email})
+                res.json(new Response(0, 'Loggin sucessfully', {username, password, id, token: accessToken, firstName, lastName, email}))
                 return
             } else {
                 res.json(new Response(-1, 'Wrong username/password'))
