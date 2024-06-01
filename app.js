@@ -21,7 +21,6 @@ const emailRoutes = require('./routes/emailRoutes')
 const app = express()
 const PORT = process.env.PORT ||  3000
 
-app.use('/uploads', express.static('uploads'));
 
 let date = new Date()
 const filepath = path.join(__dirname, "logs", `${date.toISOString().split('T')[0]}.log`);
@@ -32,6 +31,7 @@ app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use('/uploads', express.static('uploads'));
 
 
 

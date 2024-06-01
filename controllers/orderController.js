@@ -300,6 +300,52 @@ const cancelOrder = async (req, res) => {
 }
 
 
+const changeOrderStatus = async (req, res) => {
+    const {customerId, orderId, orderStatus = null, paymentStatus = null} = req.body
+
+    if(!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id || !res.locals.userData.user.isAdmin ){
+        res.json(new Response(-1, 'Unauthorized'))
+        return
+    }
+    
+    // console.log(customerId, orderId, orderStatus, paymentStatus)
+
+    if(customerId == null || orderId == null){
+        res.json(new Response(-1, "orderId has to be provided"))
+        return
+    }
 
 
-module.exports = {makingOrderFromCart, makingOrderQuickly, getOrderItems, getOrders, cancelOrder, getOrdersAdmin}
+    if(orderStatus == null && paymentStatus == null){
+        res.json(new Response(-1, "nothing changes"))
+        return
+    }
+
+    const params = [
+        new SqlParameter("orderId", sql.Int, orderId),
+        new SqlParameter("customerId", sql.Int, customerId),
+        new SqlParameter("orderStatus", sql.Int, orderStatus),
+        new SqlParameter("paymentStatus", sql.Int, paymentStatus),
+        new SqlParameter("returnCode", sql.Int, null, "OUTPUT"),
+        new SqlParameter("returnMessage", sql.NVarChar(sql.MAX), null, "OUTPUT")
+    ]
+
+
+
+    sqlConnection(sql, params, STOREPROCEDURES.CHANGEORDERSTATUS)
+        .then(output => {
+            const {returnCode, returnMessage} = output.output
+            if(returnCode == 0){
+                res.json(new Response(0, "Success"))
+                return
+            }
+            res.json(new Response(-1, returnMessage))
+            return
+        })
+
+
+}
+
+
+
+module.exports = {makingOrderFromCart, makingOrderQuickly, getOrderItems, getOrders, cancelOrder, getOrdersAdmin, changeOrderStatus}

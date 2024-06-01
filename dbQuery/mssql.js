@@ -17,6 +17,7 @@ const STOREPROCEDURES = {
     GETORDERS: "sp_getOrder",
     GETORDERITEMS: "sp_getOrderItems",
     CANCELORDER: "sp_cancel_order",
+    CHANGEORDERSTATUS: "sp_change_order_status",
 
     ADMIN_LOGIN: "sp_login_admin",
     ADMIN_UPDATECATEGORY: "sp_update_category",

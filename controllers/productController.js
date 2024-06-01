@@ -275,32 +275,38 @@ const addProduct = async (req, res) => {
         description = null,
         unitPrice = null,
         supplierId = null,
-        categoryId = null } = req.body
+        categoryId = null,
+        images = null,
+        srcs = []
+    } = req.body
+
+    console.log(req.body)
+
 
     if(!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id || !res.locals.userData.user.isAdmin){
         res.json(new Response(-1, 'Unauthorized'))
         return
     }
     
-    if(!productName || !quantity || !color || !price || !supplierId || !categoryId || !unitPrice){
-        res.json(new Response(-1, 'productName, quantity, color, price, supplierId, categoryId and unitPrice are required'))
+    if(productName == null || quantity == null  || price == null || supplierId == null || categoryId == null || unitPrice == null){
+        res.json(new Response(-1, 'productName, quantity, price, supplierId, categoryId and unitPrice are required'))
         return
     }
 
+
+
+    // const fullpaths = ""
+    // ;/uploads/
+
+    console.log("images: ", images)
     
-    const files = req.files
-
-    const fullpaths = files.reduce((prev, curr)=> {
-        return prev +";/uploads/" +curr.filename
-    }, "").slice(1)
-
 
     const params = [
         new SqlParameter('name', sql.NVarChar(200), productName),
         new SqlParameter('price', sql.Float, price),
         new SqlParameter('discount', sql.Float, discount),
         new SqlParameter('code', sql.NVarChar(15), code),
-        new SqlParameter("productImages", sql.NVarChar(sql.MAX), files.length == 0 ? null : fullpaths),
+        new SqlParameter("productImages", sql.NVarChar(sql.MAX), images),
         new SqlParameter('size', sql.NVarChar(100), size),
         new SqlParameter('quantity', sql.Int, quantity),
         new SqlParameter('color', sql.NVarChar(50), color),
