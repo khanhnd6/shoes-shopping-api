@@ -1250,3 +1250,1211 @@
 
 
 
+============= 2024-06-02T14:59:57.785Z POST /admin-login 200 328 - 142.029 ms 
+
+
+
+============= 2024-06-02T15:00:51.163Z POST /admin-login 200 328 - 44.554 ms 
+
+
+
+============= 2024-06-02T15:00:53.154Z GET /product/get-product?pageNum=1&pageSize=5 200 3345 - 112.124 ms 
+
+
+
+============= 2024-06-02T15:00:53.157Z GET /order/get-orders-admin? 200 1876 - 87.066 ms 
+
+
+
+============= 2024-06-02T15:00:53.159Z GET /customer/get-customer 200 1670 - 107.838 ms 
+
+
+
+============= 2024-06-02T15:03:03.788Z GET /report/report 404 152 - 3.542 ms 
+
+
+
+============= 2024-06-02T15:03:58.317Z GET /report/report 404 152 - 0.598 ms 
+
+
+
+============= 2024-06-02T15:04:29.192Z GET /report/report 200 50 - 3.185 ms 
+
+
+
+============= 2024-06-02T15:04:54.340Z POST /admin-login 200 328 - 137.346 ms 
+
+
+
+============= 2024-06-02T15:05:05.648Z GET /report/report 200 50 - 0.696 ms 
+
+
+
+============= 2024-06-02T15:05:09.968Z GET /report/report 200 50 - 0.760 ms 
+
+
+
+============= 2024-06-02T15:06:37.755Z GET /report/report?fromdate=2024-06-02&todate=2024-06-02&type=1 200 50 - 0.569 ms 
+
+
+
+============= 2024-06-02T15:07:16.996Z GET /report/report?fromdate=2024-06-02&todate=2024-06-02&type=1 200 50 - 5.965 ms 
+
+
+
+============= 2024-06-02T15:09:14.613Z GET /customer/get-customer 200 1670 - 134.300 ms 
+
+
+
+============= 2024-06-02T15:09:46.220Z GET /report/report?fromdate=2024-06-02&todate=2024-06-02&type=1 404 152 - 4.048 ms 
+
+
+
+============= 2024-06-02T15:09:53.120Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 200 50 - 4.611 ms 
+
+
+
+============= 2024-06-02T15:10:03.032Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 200 50 - 1.141 ms 
+
+
+
+============= 2024-06-02T15:10:22.632Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 200 50 - 0.939 ms 
+
+
+
+============= 2024-06-02T15:11:40.048Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 200 131 - 138.260 ms 
+
+
+
+============= 2024-06-02T15:12:12.043Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 200 1252 - 157.821 ms 
+
+
+
+============= 2024-06-02T15:14:43.764Z GET /customer/get-customer 304  - 61.915 ms 
+
+
+
+============= 2024-06-02T15:14:43.767Z GET /order/get-orders-admin? 304  - 61.583 ms 
+
+
+
+============= 2024-06-02T15:14:43.768Z GET /product/get-product?pageNum=1&pageSize=5 304  - 70.867 ms 
+
+
+
+============= 2024-06-02T15:15:49.627Z GET /customer/get-customer 304  - 85.620 ms 
+
+
+
+============= 2024-06-02T15:15:49.631Z GET /order/get-orders-admin? 304  - 88.367 ms 
+
+
+
+============= 2024-06-02T15:15:49.633Z GET /product/get-product?pageNum=1&pageSize=5 304  - 95.900 ms 
+
+
+
+============= 2024-06-02T15:15:58.460Z GET /product/get-product?pageNum=1&pageSize=5 304  - 52.996 ms 
+
+
+
+============= 2024-06-02T15:15:58.463Z GET /order/get-orders-admin? 304  - 52.735 ms 
+
+
+
+============= 2024-06-02T15:15:58.563Z GET /customer/get-customer 304  - 154.970 ms 
+
+
+
+============= 2024-06-02T15:22:13.554Z GET /customer/get-customer 304  - 104.943 ms 
+
+
+
+============= 2024-06-02T15:22:13.564Z GET /order/get-orders-admin? 200 104 - 110.384 ms 
+
+
+
+============= 2024-06-02T15:22:13.565Z GET /product/get-product?pageNum=1&pageSize=5 304  - 118.732 ms 
+
+
+
+============= 2024-06-02T15:22:13.640Z GET /order/get-orders-admin? 200 59 - 57.788 ms 
+
+
+
+============= 2024-06-02T15:22:13.640Z GET /product/get-product?pageNum=1&pageSize=5 200 52 - 61.186 ms 
+
+
+
+============= 2024-06-02T15:22:13.641Z GET /customer/get-customer 304  - 84.888 ms 
+
+
+
+============= 2024-06-02T15:22:13.727Z GET /customer/get-customer 304  - 82.022 ms 
+
+
+
+============= 2024-06-02T15:22:13.738Z GET /product/get-product?pageNum=1&pageSize=5 304  - 94.585 ms 
+
+
+
+============= 2024-06-02T15:22:13.740Z GET /order/get-orders-admin? 200 1876 - 97.077 ms 
+
+
+
+============= 2024-06-02T15:22:13.803Z GET /product/get-product?pageNum=1&pageSize=5 200 3345 - 60.996 ms 
+
+
+
+============= 2024-06-02T15:22:13.804Z GET /order/get-orders-admin? 304  - 61.796 ms 
+
+
+
+============= 2024-06-02T15:22:13.907Z GET /customer/get-customer 304  - 176.832 ms 
+
+
+
+============= 2024-06-02T15:22:23.676Z GET /customer/get-customer 304  - 71.851 ms 
+
+
+
+============= 2024-06-02T15:22:23.684Z GET /order/get-orders-admin? 304  - 71.934 ms 
+
+
+
+============= 2024-06-02T15:22:23.784Z GET /product/get-product?pageNum=1&pageSize=5 304  - 188.545 ms 
+
+
+
+============= 2024-06-02T15:23:09.052Z GET /product/get-product?pageNum=1&pageSize=5 304  - 191.859 ms 
+
+
+
+============= 2024-06-02T15:23:09.066Z GET /order/get-orders-admin? 304  - 188.188 ms 
+
+
+
+============= 2024-06-02T15:23:09.068Z GET /customer/get-customer 304  - 195.543 ms 
+
+
+
+============= 2024-06-02T15:23:13.998Z GET /product/get-product?pageNum=1&pageSize=5 304  - 54.846 ms 
+
+
+
+============= 2024-06-02T15:23:14.001Z GET /customer/get-customer 304  - 50.497 ms 
+
+
+
+============= 2024-06-02T15:23:14.002Z GET /order/get-orders-admin? 304  - 50.111 ms 
+
+
+
+============= 2024-06-02T15:25:03.573Z GET /customer/get-customer 304  - 52.969 ms 
+
+
+
+============= 2024-06-02T15:25:03.581Z GET /order/get-orders-admin? 304  - 56.373 ms 
+
+
+
+============= 2024-06-02T15:25:03.582Z GET /product/get-product?pageNum=1&pageSize=5 304  - 66.232 ms 
+
+
+
+============= 2024-06-02T15:25:36.677Z GET /product/get-product?pageNum=1&pageSize=5 304  - 72.698 ms 
+
+
+
+============= 2024-06-02T15:25:36.683Z GET /order/get-orders-admin? 304  - 70.385 ms 
+
+
+
+============= 2024-06-02T15:25:36.685Z GET /customer/get-customer 304  - 75.373 ms 
+
+
+
+============= 2024-06-02T15:26:00.175Z GET /order/get-orders-admin? 304  - 64.275 ms 
+
+
+
+============= 2024-06-02T15:26:00.178Z GET /product/get-product?pageNum=1&pageSize=5 304  - 76.637 ms 
+
+
+
+============= 2024-06-02T15:26:00.180Z GET /customer/get-customer 304  - 72.950 ms 
+
+
+
+============= 2024-06-02T15:26:06.764Z GET /customer/get-customer 304  - 81.993 ms 
+
+
+
+============= 2024-06-02T15:26:06.769Z GET /order/get-orders-admin? 304  - 84.822 ms 
+
+
+
+============= 2024-06-02T15:26:06.771Z GET /product/get-product?pageNum=1&pageSize=5 304  - 94.092 ms 
+
+
+
+============= 2024-06-02T15:26:26.035Z GET /order/get-orders-admin? 304  - 74.993 ms 
+
+
+
+============= 2024-06-02T15:26:26.037Z GET /customer/get-customer 304  - 79.717 ms 
+
+
+
+============= 2024-06-02T15:26:26.039Z GET /product/get-product?pageNum=1&pageSize=5 304  - 87.998 ms 
+
+
+
+============= 2024-06-02T15:27:10.768Z GET /customer/get-customer 304  - 80.540 ms 
+
+
+
+============= 2024-06-02T15:27:10.774Z GET /order/get-orders-admin? 304  - 81.950 ms 
+
+
+
+============= 2024-06-02T15:27:10.775Z GET /product/get-product?pageNum=1&pageSize=5 304  - 93.081 ms 
+
+
+
+============= 2024-06-02T15:28:34.331Z GET /customer/get-customer 304  - 97.401 ms 
+
+
+
+============= 2024-06-02T15:28:34.339Z GET /order/get-orders-admin? 304  - 101.502 ms 
+
+
+
+============= 2024-06-02T15:28:34.354Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 200 1252 - 111.908 ms 
+
+
+
+============= 2024-06-02T15:28:34.355Z GET /product/get-product?pageNum=1&pageSize=5 304  - 127.279 ms 
+
+
+
+============= 2024-06-02T15:28:57.786Z GET /product/get-product?pageNum=1&pageSize=5 304  - 82.253 ms 
+
+
+
+============= 2024-06-02T15:28:57.795Z GET /order/get-orders-admin? 304  - 81.608 ms 
+
+
+
+============= 2024-06-02T15:28:57.810Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 93.285 ms 
+
+
+
+============= 2024-06-02T15:28:57.811Z GET /customer/get-customer 304  - 101.981 ms 
+
+
+
+============= 2024-06-02T15:29:35.446Z GET /product/get-product?pageNum=1&pageSize=5 304  - 105.132 ms 
+
+
+
+============= 2024-06-02T15:29:35.451Z GET /order/get-orders-admin? 304  - 86.358 ms 
+
+
+
+============= 2024-06-02T15:29:35.464Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 89.460 ms 
+
+
+
+============= 2024-06-02T15:29:35.465Z GET /customer/get-customer 304  - 107.405 ms 
+
+
+
+============= 2024-06-02T15:31:07.394Z GET /customer/get-customer 304  - 67.506 ms 
+
+
+
+============= 2024-06-02T15:31:07.406Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 73.598 ms 
+
+
+
+============= 2024-06-02T15:31:07.408Z GET /order/get-orders-admin? 304  - 78.389 ms 
+
+
+
+============= 2024-06-02T15:31:07.409Z GET /product/get-product?pageNum=1&pageSize=5 304  - 89.420 ms 
+
+
+
+============= 2024-06-02T15:31:21.062Z GET /order/get-orders-admin? 304  - 65.865 ms 
+
+
+
+============= 2024-06-02T15:31:21.064Z GET /customer/get-customer 304  - 70.281 ms 
+
+
+
+============= 2024-06-02T15:31:21.075Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 72.849 ms 
+
+
+
+============= 2024-06-02T15:31:21.077Z GET /product/get-product?pageNum=1&pageSize=5 304  - 91.244 ms 
+
+
+
+============= 2024-06-02T15:31:33.335Z GET /customer/get-customer 304  - 64.032 ms 
+
+
+
+============= 2024-06-02T15:31:33.338Z GET /order/get-orders-admin? 304  - 62.621 ms 
+
+
+
+============= 2024-06-02T15:31:33.355Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 78.036 ms 
+
+
+
+============= 2024-06-02T15:31:33.357Z GET /product/get-product?pageNum=1&pageSize=5 304  - 90.935 ms 
+
+
+
+============= 2024-06-02T15:31:38.247Z GET /customer/get-customer 304  - 88.679 ms 
+
+
+
+============= 2024-06-02T15:31:38.252Z GET /order/get-orders-admin? 304  - 91.549 ms 
+
+
+
+============= 2024-06-02T15:31:38.284Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 120.750 ms 
+
+
+
+============= 2024-06-02T15:31:38.286Z GET /product/get-product?pageNum=1&pageSize=5 304  - 128.585 ms 
+
+
+
+============= 2024-06-02T15:31:48.116Z GET /product/get-product?pageNum=1&pageSize=5 304  - 83.762 ms 
+
+
+
+============= 2024-06-02T15:31:48.124Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 77.369 ms 
+
+
+
+============= 2024-06-02T15:31:48.127Z GET /order/get-orders-admin? 304  - 81.181 ms 
+
+
+
+============= 2024-06-02T15:31:48.128Z GET /customer/get-customer 304  - 87.855 ms 
+
+
+
+============= 2024-06-02T15:31:56.623Z GET /product/get-product?pageNum=1&pageSize=5 304  - 75.184 ms 
+
+
+
+============= 2024-06-02T15:31:56.624Z GET /customer/get-customer 304  - 69.956 ms 
+
+
+
+============= 2024-06-02T15:31:56.636Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 78.238 ms 
+
+
+
+============= 2024-06-02T15:31:56.639Z GET /order/get-orders-admin? 304  - 82.727 ms 
+
+
+
+============= 2024-06-02T15:32:13.398Z GET /customer/get-customer 304  - 63.880 ms 
+
+
+
+============= 2024-06-02T15:32:13.401Z GET /product/get-product?pageNum=1&pageSize=5 304  - 72.036 ms 
+
+
+
+============= 2024-06-02T15:32:13.407Z GET /order/get-orders-admin? 304  - 70.569 ms 
+
+
+
+============= 2024-06-02T15:32:13.417Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 78.484 ms 
+
+
+
+============= 2024-06-02T15:32:27.054Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 57.697 ms 
+
+
+
+============= 2024-06-02T15:32:27.056Z GET /product/get-product?pageNum=1&pageSize=5 304  - 72.215 ms 
+
+
+
+============= 2024-06-02T15:32:27.058Z GET /customer/get-customer 304  - 65.058 ms 
+
+
+
+============= 2024-06-02T15:32:27.060Z GET /order/get-orders-admin? 304  - 65.623 ms 
+
+
+
+============= 2024-06-02T15:32:33.946Z GET /customer/get-customer 304  - 64.072 ms 
+
+
+
+============= 2024-06-02T15:32:33.958Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 69.747 ms 
+
+
+
+============= 2024-06-02T15:32:33.961Z GET /product/get-product?pageNum=1&pageSize=5 304  - 84.120 ms 
+
+
+
+============= 2024-06-02T15:32:33.965Z GET /order/get-orders-admin? 304  - 77.685 ms 
+
+
+
+============= 2024-06-02T15:32:44.641Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 71.510 ms 
+
+
+
+============= 2024-06-02T15:32:44.643Z GET /customer/get-customer 304  - 77.742 ms 
+
+
+
+============= 2024-06-02T15:32:44.645Z GET /order/get-orders-admin? 304  - 77.130 ms 
+
+
+
+============= 2024-06-02T15:32:44.646Z GET /product/get-product?pageNum=1&pageSize=5 304  - 89.688 ms 
+
+
+
+============= 2024-06-02T15:32:55.724Z GET /order/get-orders-admin? 304  - 74.176 ms 
+
+
+
+============= 2024-06-02T15:32:55.726Z GET /product/get-product?pageNum=1&pageSize=5 304  - 85.972 ms 
+
+
+
+============= 2024-06-02T15:32:55.737Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 84.468 ms 
+
+
+
+============= 2024-06-02T15:32:55.740Z GET /customer/get-customer 304  - 92.700 ms 
+
+
+
+============= 2024-06-02T15:33:04.988Z GET /order/get-orders-admin? 304  - 55.910 ms 
+
+
+
+============= 2024-06-02T15:33:04.989Z GET /product/get-product?pageNum=1&pageSize=5 304  - 67.201 ms 
+
+
+
+============= 2024-06-02T15:33:05.000Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 66.516 ms 
+
+
+
+============= 2024-06-02T15:33:05.002Z GET /customer/get-customer 304  - 74.044 ms 
+
+
+
+============= 2024-06-02T15:33:12.024Z GET /product/get-product?pageNum=1&pageSize=5 304  - 71.228 ms 
+
+
+
+============= 2024-06-02T15:33:12.026Z GET /order/get-orders-admin? 304  - 62.163 ms 
+
+
+
+============= 2024-06-02T15:33:12.037Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 72.099 ms 
+
+
+
+============= 2024-06-02T15:33:12.132Z GET /customer/get-customer 304  - 173.667 ms 
+
+
+
+============= 2024-06-02T15:33:22.860Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 63.972 ms 
+
+
+
+============= 2024-06-02T15:33:22.861Z GET /customer/get-customer 304  - 69.880 ms 
+
+
+
+============= 2024-06-02T15:33:22.863Z GET /order/get-orders-admin? 304  - 68.702 ms 
+
+
+
+============= 2024-06-02T15:33:22.864Z GET /product/get-product?pageNum=1&pageSize=5 304  - 77.876 ms 
+
+
+
+============= 2024-06-02T15:33:44.987Z GET /product/get-product?pageNum=1&pageSize=5 304  - 105.432 ms 
+
+
+
+============= 2024-06-02T15:33:44.999Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 78.307 ms 
+
+
+
+============= 2024-06-02T15:33:45.003Z GET /order/get-orders-admin? 304  - 84.189 ms 
+
+
+
+============= 2024-06-02T15:33:45.005Z GET /customer/get-customer 304  - 93.363 ms 
+
+
+
+============= 2024-06-02T15:34:03.352Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 161.510 ms 
+
+
+
+============= 2024-06-02T15:34:03.354Z GET /customer/get-customer 304  - 171.675 ms 
+
+
+
+============= 2024-06-02T15:34:03.366Z GET /order/get-orders-admin? 304  - 179.112 ms 
+
+
+
+============= 2024-06-02T15:34:03.367Z GET /product/get-product?pageNum=1&pageSize=5 304  - 193.826 ms 
+
+
+
+============= 2024-06-02T15:34:06.869Z GET /order/get-orders-admin? 304  - 68.786 ms 
+
+
+
+============= 2024-06-02T15:34:06.870Z GET /customer/get-customer 304  - 72.718 ms 
+
+
+
+============= 2024-06-02T15:34:06.886Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 78.369 ms 
+
+
+
+============= 2024-06-02T15:34:06.889Z GET /product/get-product?pageNum=1&pageSize=5 304  - 92.657 ms 
+
+
+
+============= 2024-06-02T15:36:26.868Z GET /customer/get-customer 304  - 61.801 ms 
+
+
+
+============= 2024-06-02T15:36:26.880Z GET /order/get-orders-admin? 304  - 70.632 ms 
+
+
+
+============= 2024-06-02T15:36:26.895Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 200 1369 - 81.231 ms 
+
+
+
+============= 2024-06-02T15:36:26.897Z GET /product/get-product?pageNum=1&pageSize=5 304  - 95.071 ms 
+
+
+
+============= 2024-06-02T15:36:36.128Z GET /customer/get-customer 304  - 62.856 ms 
+
+
+
+============= 2024-06-02T15:36:36.130Z GET /order/get-orders-admin? 304  - 62.631 ms 
+
+
+
+============= 2024-06-02T15:36:36.147Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 71.353 ms 
+
+
+
+============= 2024-06-02T15:36:36.148Z GET /product/get-product?pageNum=1&pageSize=5 304  - 89.733 ms 
+
+
+
+============= 2024-06-02T15:36:58.800Z GET /customer/get-customer 304  - 68.959 ms 
+
+
+
+============= 2024-06-02T15:36:58.802Z GET /order/get-orders-admin? 304  - 69.092 ms 
+
+
+
+============= 2024-06-02T15:36:58.811Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 77.155 ms 
+
+
+
+============= 2024-06-02T15:36:58.906Z GET /product/get-product?pageNum=1&pageSize=5 304  - 182.366 ms 
+
+
+
+============= 2024-06-02T15:37:29.063Z GET /customer/get-customer 304  - 71.215 ms 
+
+
+
+============= 2024-06-02T15:37:29.074Z GET /order/get-orders-admin? 304  - 80.143 ms 
+
+
+
+============= 2024-06-02T15:37:29.087Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 90.903 ms 
+
+
+
+============= 2024-06-02T15:37:29.088Z GET /product/get-product?pageNum=1&pageSize=5 304  - 101.198 ms 
+
+
+
+============= 2024-06-02T15:37:46.731Z GET /customer/get-customer 304  - 91.306 ms 
+
+
+
+============= 2024-06-02T15:37:46.735Z GET /order/get-orders-admin? 304  - 91.782 ms 
+
+
+
+============= 2024-06-02T15:37:46.748Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 103.125 ms 
+
+
+
+============= 2024-06-02T15:37:46.750Z GET /product/get-product?pageNum=1&pageSize=5 304  - 114.919 ms 
+
+
+
+============= 2024-06-02T15:38:18.070Z GET /product/get-product?pageNum=1&pageSize=5 304  - 74.598 ms 
+
+
+
+============= 2024-06-02T15:38:18.076Z GET /order/get-orders-admin? 304  - 73.711 ms 
+
+
+
+============= 2024-06-02T15:38:18.090Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 85.747 ms 
+
+
+
+============= 2024-06-02T15:38:18.091Z GET /customer/get-customer 304  - 91.302 ms 
+
+
+
+============= 2024-06-02T15:38:30.402Z GET /product/get-product?pageNum=1&pageSize=5 304  - 64.642 ms 
+
+
+
+============= 2024-06-02T15:38:30.410Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 54.632 ms 
+
+
+
+============= 2024-06-02T15:38:30.412Z GET /customer/get-customer 304  - 60.793 ms 
+
+
+
+============= 2024-06-02T15:38:30.413Z GET /order/get-orders-admin? 304  - 59.444 ms 
+
+
+
+============= 2024-06-02T15:38:37.651Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 59.587 ms 
+
+
+
+============= 2024-06-02T15:38:37.652Z GET /product/get-product?pageNum=1&pageSize=5 304  - 71.937 ms 
+
+
+
+============= 2024-06-02T15:38:37.654Z GET /customer/get-customer 304  - 66.899 ms 
+
+
+
+============= 2024-06-02T15:38:37.656Z GET /order/get-orders-admin? 304  - 67.078 ms 
+
+
+
+============= 2024-06-02T15:39:25.546Z GET /customer/get-customer 304  - 124.288 ms 
+
+
+
+============= 2024-06-02T15:39:25.563Z GET /order/get-orders-admin? 304  - 136.397 ms 
+
+
+
+============= 2024-06-02T15:39:25.576Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 145.975 ms 
+
+
+
+============= 2024-06-02T15:39:25.578Z GET /product/get-product?pageNum=1&pageSize=5 304  - 160.647 ms 
+
+
+
+============= 2024-06-02T15:39:35.508Z GET /customer/get-customer 304  - 113.734 ms 
+
+
+
+============= 2024-06-02T15:39:35.512Z GET /order/get-orders-admin? 304  - 116.087 ms 
+
+
+
+============= 2024-06-02T15:39:35.540Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 138.246 ms 
+
+
+
+============= 2024-06-02T15:39:35.619Z GET /product/get-product?pageNum=1&pageSize=5 304  - 230.409 ms 
+
+
+
+============= 2024-06-02T15:39:46.660Z GET /customer/get-customer 304  - 66.046 ms 
+
+
+
+============= 2024-06-02T15:39:46.662Z GET /order/get-orders-admin? 304  - 62.980 ms 
+
+
+
+============= 2024-06-02T15:39:46.672Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 70.400 ms 
+
+
+
+============= 2024-06-02T15:39:46.673Z GET /product/get-product?pageNum=1&pageSize=5 304  - 84.304 ms 
+
+
+
+============= 2024-06-02T15:40:23.016Z GET /customer/get-customer 304  - 77.661 ms 
+
+
+
+============= 2024-06-02T15:40:23.021Z GET /order/get-orders-admin? 304  - 81.608 ms 
+
+
+
+============= 2024-06-02T15:40:23.032Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 90.228 ms 
+
+
+
+============= 2024-06-02T15:40:23.033Z GET /product/get-product?pageNum=1&pageSize=5 304  - 101.501 ms 
+
+
+
+============= 2024-06-02T15:41:12.727Z GET /customer/get-customer 304  - 79.946 ms 
+
+
+
+============= 2024-06-02T15:41:12.733Z GET /order/get-orders-admin? 304  - 81.361 ms 
+
+
+
+============= 2024-06-02T15:41:12.744Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 89.577 ms 
+
+
+
+============= 2024-06-02T15:41:12.747Z GET /product/get-product?pageNum=1&pageSize=5 304  - 103.688 ms 
+
+
+
+============= 2024-06-02T15:41:34.464Z GET /customer/get-customer 304  - 67.525 ms 
+
+
+
+============= 2024-06-02T15:41:34.469Z GET /order/get-orders-admin? 304  - 69.639 ms 
+
+
+
+============= 2024-06-02T15:41:34.485Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 81.632 ms 
+
+
+
+============= 2024-06-02T15:41:34.486Z GET /product/get-product?pageNum=1&pageSize=5 304  - 96.334 ms 
+
+
+
+============= 2024-06-02T15:42:39.096Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 109.564 ms 
+
+
+
+============= 2024-06-02T15:42:39.097Z GET /customer/get-customer 304  - 121.555 ms 
+
+
+
+============= 2024-06-02T15:42:39.100Z GET /order/get-orders-admin? 304  - 118.988 ms 
+
+
+
+============= 2024-06-02T15:42:39.101Z GET /product/get-product?pageNum=1&pageSize=5 304  - 137.808 ms 
+
+
+
+============= 2024-06-02T15:43:14.883Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 78.284 ms 
+
+
+
+============= 2024-06-02T15:43:14.885Z GET /customer/get-customer 304  - 84.629 ms 
+
+
+
+============= 2024-06-02T15:43:14.888Z GET /order/get-orders-admin? 304  - 84.365 ms 
+
+
+
+============= 2024-06-02T15:43:14.889Z GET /product/get-product?pageNum=1&pageSize=5 304  - 93.690 ms 
+
+
+
+============= 2024-06-02T15:46:12.457Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 72.305 ms 
+
+
+
+============= 2024-06-02T15:46:12.458Z GET /customer/get-customer 304  - 78.790 ms 
+
+
+
+============= 2024-06-02T15:46:12.460Z GET /order/get-orders-admin? 304  - 77.869 ms 
+
+
+
+============= 2024-06-02T15:46:12.462Z GET /product/get-product?pageNum=1&pageSize=5 304  - 92.341 ms 
+
+
+
+============= 2024-06-02T15:52:47.032Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 113.171 ms 
+
+
+
+============= 2024-06-02T15:52:47.034Z GET /product/get-product?pageNum=1&pageSize=5 304  - 125.236 ms 
+
+
+
+============= 2024-06-02T15:52:47.037Z GET /order/get-orders-admin? 304  - 119.798 ms 
+
+
+
+============= 2024-06-02T15:52:47.039Z GET /customer/get-customer 304  - 124.330 ms 
+
+
+
+============= 2024-06-02T15:53:19.993Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 100.817 ms 
+
+
+
+============= 2024-06-02T15:53:19.996Z GET /customer/get-customer 304  - 109.043 ms 
+
+
+
+============= 2024-06-02T15:53:19.999Z GET /order/get-orders-admin? 304  - 109.234 ms 
+
+
+
+============= 2024-06-02T15:53:20.002Z GET /product/get-product?pageNum=1&pageSize=5 304  - 119.022 ms 
+
+
+
+============= 2024-06-02T15:54:06.026Z GET /customer/get-customer 304  - 89.286 ms 
+
+
+
+============= 2024-06-02T15:54:06.038Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 97.229 ms 
+
+
+
+============= 2024-06-02T15:54:06.042Z GET /order/get-orders-admin? 304  - 102.041 ms 
+
+
+
+============= 2024-06-02T15:54:06.043Z GET /product/get-product?pageNum=1&pageSize=5 304  - 111.759 ms 
+
+
+
+============= 2024-06-02T15:56:39.976Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=0 200 1516 - 50.791 ms 
+
+
+
+============= 2024-06-02T15:56:43.146Z GET /product/get-product?pageNum=1&pageSize=5 304  - 86.404 ms 
+
+
+
+============= 2024-06-02T15:56:43.148Z GET /order/get-orders-admin? 304  - 75.532 ms 
+
+
+
+============= 2024-06-02T15:56:43.150Z GET /customer/get-customer 304  - 79.344 ms 
+
+
+
+============= 2024-06-02T15:56:43.162Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 88.353 ms 
+
+
+
+============= 2024-06-02T15:57:17.348Z GET /customer/get-customer 304  - 111.224 ms 
+
+
+
+============= 2024-06-02T15:57:17.357Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 117.104 ms 
+
+
+
+============= 2024-06-02T15:57:17.359Z GET /order/get-orders-admin? 304  - 120.241 ms 
+
+
+
+============= 2024-06-02T15:57:17.362Z GET /product/get-product?pageNum=1&pageSize=5 304  - 136.534 ms 
+
+
+
+============= 2024-06-02T15:57:20.635Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=0 304  - 37.544 ms 
+
+
+
+============= 2024-06-02T15:57:29.214Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 38.892 ms 
+
+
+
+============= 2024-06-02T15:58:23.061Z GET /customer/get-customer 304  - 80.248 ms 
+
+
+
+============= 2024-06-02T15:58:23.072Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 80.505 ms 
+
+
+
+============= 2024-06-02T15:58:23.074Z GET /order/get-orders-admin? 304  - 89.167 ms 
+
+
+
+============= 2024-06-02T15:58:23.075Z GET /product/get-product?pageNum=1&pageSize=5 304  - 100.357 ms 
+
+
+
+============= 2024-06-02T15:58:27.641Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=0 304  - 40.765 ms 
+
+
+
+============= 2024-06-02T16:00:21.925Z GET /customer/get-customer 304  - 103.448 ms 
+
+
+
+============= 2024-06-02T16:00:21.937Z GET /product/get-product?pageNum=1&pageSize=5 304  - 126.751 ms 
+
+
+
+============= 2024-06-02T16:00:21.947Z GET /order/get-orders-admin? 304  - 130.478 ms 
+
+
+
+============= 2024-06-02T16:00:21.958Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=0 304  - 133.876 ms 
+
+
+
+============= 2024-06-02T16:00:30.200Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=0 304  - 41.738 ms 
+
+
+
+============= 2024-06-02T16:01:42.964Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=0 304  - 101.835 ms 
+
+
+
+============= 2024-06-02T16:01:42.966Z GET /customer/get-customer 304  - 110.215 ms 
+
+
+
+============= 2024-06-02T16:01:42.969Z GET /order/get-orders-admin? 304  - 107.681 ms 
+
+
+
+============= 2024-06-02T16:01:42.970Z GET /product/get-product?pageNum=1&pageSize=5 304  - 117.884 ms 
+
+
+
+============= 2024-06-02T16:01:45.238Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=0 304  - 43.322 ms 
+
+
+
+============= 2024-06-02T16:02:34.283Z GET /customer/get-customer 304  - 73.087 ms 
+
+
+
+============= 2024-06-02T16:02:34.285Z GET /product/get-product?pageNum=1&pageSize=5 304  - 82.685 ms 
+
+
+
+============= 2024-06-02T16:02:34.293Z GET /order/get-orders-admin? 304  - 77.717 ms 
+
+
+
+============= 2024-06-02T16:02:34.307Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=0 304  - 95.289 ms 
+
+
+
+============= 2024-06-02T16:03:06.980Z GET /customer/get-customer 304  - 132.935 ms 
+
+
+
+============= 2024-06-02T16:03:06.991Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 140.108 ms 
+
+
+
+============= 2024-06-02T16:03:07.041Z GET /order/get-orders-admin? 304  - 191.135 ms 
+
+
+
+============= 2024-06-02T16:03:07.067Z GET /product/get-product?pageNum=1&pageSize=5 304  - 225.625 ms 
+
+
+
+============= 2024-06-02T16:04:01.095Z GET /order/get-orders-admin? 304  - 50.525 ms 
+
+
+
+============= 2024-06-02T16:04:06.405Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 79.070 ms 
+
+
+
+============= 2024-06-02T16:04:06.407Z GET /customer/get-customer 304  - 101.746 ms 
+
+
+
+============= 2024-06-02T16:04:06.408Z GET /order/get-orders-admin? 304  - 95.084 ms 
+
+
+
+============= 2024-06-02T16:04:06.498Z GET /product/get-product?pageNum=1&pageSize=5 304  - 204.985 ms 
+
+
+
+============= 2024-06-02T16:04:37.280Z GET /product/get-product?pageNum=1&pageSize=5 304  - 69.158 ms 
+
+
+
+============= 2024-06-02T16:04:37.282Z GET /customer/get-customer 304  - 65.784 ms 
+
+
+
+============= 2024-06-02T16:04:37.284Z GET /order/get-orders-admin? 304  - 64.989 ms 
+
+
+
+============= 2024-06-02T16:04:37.294Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 72.557 ms 
+
+
+
+============= 2024-06-02T16:05:38.076Z GET /customer/get-customer 304  - 82.188 ms 
+
+
+
+============= 2024-06-02T16:05:38.088Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=1 304  - 85.623 ms 
+
+
+
+============= 2024-06-02T16:05:38.090Z GET /order/get-orders-admin? 304  - 91.016 ms 
+
+
+
+============= 2024-06-02T16:05:38.092Z GET /product/get-product?pageNum=1&pageSize=5 304  - 103.703 ms 
+
+
+
+============= 2024-06-02T16:05:50.649Z GET /report/get-report?fromdate=2024-06-02&todate=2024-06-02&type=0 304  - 47.790 ms 
+
+
+
+============= 2024-06-02T16:07:05.009Z GET /customer/get-customer 304  - 124.805 ms 
+
+
+
+============= 2024-06-02T16:07:05.010Z GET /product/get-product?pageNum=1&pageSize=5 304  - 134.841 ms 
+
+
+
+============= 2024-06-02T16:07:05.017Z GET /order/get-orders-admin? 304  - 126.718 ms 
+
+
+
+============= 2024-06-02T16:07:05.026Z GET /report/get-report?fromdate=Sun+Jun+02+2024+23%3A07%3A03+GMT%2B0700+%28Gi%E1%BB%9D+%C4%90%C3%B4ng+D%C6%B0%C6%A1ng%29&todate=Sun+Jun+02+2024+23%3A07%3A03+GMT%2B0700+%28Gi%E1%BB%9D+%C4%90%C3%B4ng+D%C6%B0%C6%A1ng%29&type=1 200 1369 - 139.728 ms 
+
+
+
+============= 2024-06-02T16:07:29.739Z GET /report/get-report?fromdate=Sun+Jun+02+2024+23%3A07%3A28+GMT%2B0700+%28Gi%E1%BB%9D+%C4%90%C3%B4ng+D%C6%B0%C6%A1ng%29&todate=Sun+Jun+02+2024+23%3A07%3A28+GMT%2B0700+%28Gi%E1%BB%9D+%C4%90%C3%B4ng+D%C6%B0%C6%A1ng%29&type=1 200 1369 - 117.098 ms 
+
+
+
+============= 2024-06-02T16:07:29.765Z GET /customer/get-customer 304  - 150.006 ms 
+
+
+
+============= 2024-06-02T16:07:29.771Z GET /order/get-orders-admin? 304  - 146.387 ms 
+
+
+
+============= 2024-06-02T16:07:29.830Z GET /product/get-product?pageNum=1&pageSize=5 304  - 220.106 ms 
+
+
+
+============= 2024-06-02T16:08:20.961Z GET /report/get-report?fromdate=2024-06-05&todate=2024-06-01&type=0 200 277 - 84.970 ms 
+
+
+
+============= 2024-06-02T16:08:20.963Z GET /customer/get-customer 304  - 95.879 ms 
+
+
+
+============= 2024-06-02T16:08:20.976Z GET /order/get-orders-admin? 304  - 102.759 ms 
+
+
+
+============= 2024-06-02T16:08:20.978Z GET /product/get-product?pageNum=1&pageSize=5 304  - 118.051 ms 
+
+
+
+============= 2024-06-02T16:08:29.016Z GET /report/get-report?fromdate=2024-06-05&todate=2024-06-01&type=0 304  - 36.293 ms 
+
+
+
+============= 2024-06-02T16:10:53.604Z GET /report/get-report?fromdate=2024-06-01&todate=2024-06-06&type=0 200 1516 - 61.253 ms 
+
+
+
+============= 2024-06-02T16:13:24.069Z GET /customer/get-customer 304  - 84.242 ms 
+
+
+
+============= 2024-06-02T16:13:24.076Z GET /order/get-orders-admin? 304  - 86.300 ms 
+
+
+
+============= 2024-06-02T16:13:24.091Z GET /report/get-report?fromdate=Sun+Jun+02+2024+23%3A13%3A22+GMT%2B0700+%28Gi%E1%BB%9D+%C4%90%C3%B4ng+D%C6%B0%C6%A1ng%29&todate=Sun+Jun+02+2024+23%3A13%3A22+GMT%2B0700+%28Gi%E1%BB%9D+%C4%90%C3%B4ng+D%C6%B0%C6%A1ng%29&type=1 200 1369 - 103.533 ms 
+
+
+
+============= 2024-06-02T16:13:24.093Z GET /product/get-product?pageNum=1&pageSize=5 304  - 114.349 ms 
+
+
+
+============= 2024-06-02T16:25:19.999Z GET /customer/get-customer 304  - 56.259 ms 
+
+
+
+============= 2024-06-02T16:25:20.004Z GET /order/get-orders-admin? 304  - 58.068 ms 
+
+
+
+============= 2024-06-02T16:25:20.016Z GET /report/get-report?fromdate=Sun+Jun+02+2024+23%3A25%3A17+GMT%2B0700+%28Gi%E1%BB%9D+%C4%90%C3%B4ng+D%C6%B0%C6%A1ng%29&todate=Sun+Jun+02+2024+23%3A25%3A17+GMT%2B0700+%28Gi%E1%BB%9D+%C4%90%C3%B4ng+D%C6%B0%C6%A1ng%29&type=1 200 1369 - 74.944 ms 
+
+
+
+============= 2024-06-02T16:25:20.017Z GET /product/get-product?pageNum=1&pageSize=5 304  - 80.500 ms 
+
+
+
+============= 2024-06-02T16:26:59.867Z GET /customer/get-customer 304  - 72.769 ms 
+
+
+
+============= 2024-06-02T16:26:59.870Z GET /order/get-orders-admin? 304  - 69.638 ms 
+
+
+
+============= 2024-06-02T16:26:59.889Z GET /report/get-report?fromdate=Sun+Jun+02+2024+23%3A26%3A58+GMT%2B0700+%28Gi%E1%BB%9D+%C4%90%C3%B4ng+D%C6%B0%C6%A1ng%29&todate=Sun+Jun+02+2024+23%3A26%3A58+GMT%2B0700+%28Gi%E1%BB%9D+%C4%90%C3%B4ng+D%C6%B0%C6%A1ng%29&type=1 200 1369 - 91.430 ms 
+
+
+
+============= 2024-06-02T16:26:59.891Z GET /product/get-product?pageNum=1&pageSize=5 304  - 100.460 ms 
+
+
+

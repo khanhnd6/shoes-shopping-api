@@ -27,6 +27,7 @@ const STOREPROCEDURES = {
     ADMIN_ADDPRODUCT: "sp_insert_product",
     ADMIN_DELETEPRODUCT: "sp_delete_product",
     ADMIN_GETORDERS: "sp_getOrder_admin",
+    ADMIN_REPORT: "sp_report",
     
     REGISTER: "sp_register",
 

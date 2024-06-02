@@ -155,6 +155,45 @@ const getCustomer = async (req, res) => {
 }
 
 
+const report = async (req, res) => {
+    const {
+        fromdate = null,
+        todate = null,
+        type = 0
+    } = req.query
+
+
+    console.log(res.locals.userData, req.query)
+
+    if(!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id || !res.locals.userData.user.isAdmin){
+        res.json(new Response(-1, 'Unauthorized'))
+        return
+    }
+
+
+    const params = [
+        new SqlParameter("fromdate", sql.Date, fromdate),
+        new SqlParameter("todate", sql.Date, todate),
+        new SqlParameter("type", sql.Int, type),
+    ]
+
+    sqlConnection(sql, params, STOREPROCEDURES.ADMIN_REPORT)
+    .then(output => {
+        console.log(output.recordsets)
+        res.json({
+            reportByCondition: output.recordsets[0],
+            orderItems: output.recordsets[1],
+            totals: output.recordsets[2]
+        })
+        return 
+    })
+    .catch(err => {
+        res.json(new Response(-1, "error: " + err.message))
+        return
+    })
+}
+
+
 
 const getSupplier = async (req, res) => {
     const {supplier = null, supplierId = null} = req.query
@@ -301,4 +340,4 @@ const verifyAndRecoverPassword = async (req, res) => {
 
 
 
-module.exports = {getVoucher, addVoucher, getCommonType, getCustomer, getSupplier, getRecoverringEmail, verifyAndRecoverPassword}
+module.exports = {getVoucher, addVoucher, getCommonType, getCustomer, getSupplier, getRecoverringEmail, verifyAndRecoverPassword, report}
