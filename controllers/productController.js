@@ -1,14 +1,14 @@
-const {mssqlDBConfig} = require('../config/dbConfig')
-const {getProductQuery, STOREPROCEDURES} = require('../dbQuery/mssql');
+const { mssqlDBConfig } = require('../config/dbConfig')
+const { getProductQuery, STOREPROCEDURES } = require('../dbQuery/mssql');
 const sql = require('mssql');
 const SqlParameter = require('../models/param');
 const { sqlConnection } = require('../utils/dbUtils');
 const Response = require('../models/response');
 
-const getProductDetails = async (req, res) =>{
+const getProductDetails = async (req, res) => {
 
-    const {id = null, code = null, name = null, supplierId = null, supplier = null, categoryId = null, category = null, fromPrice = null, toPrice = null, isHidden = null} = req.query
-    
+    const { id = null, code = null, name = null, supplierId = null, supplier = null, categoryId = null, category = null, fromPrice = null, toPrice = null, isHidden = null } = req.query
+
 
     const params = [
         new SqlParameter('id', sql.Int, id),
@@ -25,9 +25,18 @@ const getProductDetails = async (req, res) =>{
 
     sqlConnection(sql, params, STOREPROCEDURES.GETPRODUCT)
         .then(output => {
-            
+
             var recordSet = output.recordsets[0]
 
+            recordSet.forEach(record => {
+                if (record.images && record.images[0] !== 'h') {
+                    // Assuming images are separated by commas within the image field
+                    const elements = record.images.split(',');
+                    const updatedElements = elements.map(element => `http://localhost:${process.env.PORT}${element}`);
+                    record.images = updatedElements.join(',');
+                }
+            });
+            console.log(recordSet)
             res.json(recordSet)
         })
         .catch(err => {
@@ -37,23 +46,23 @@ const getProductDetails = async (req, res) =>{
 }
 
 
-const getProduct = async (req, res) =>{
+const getProduct = async (req, res) => {
 
-    const { 
+    const {
         pageNum = 1,
         pageSize = 10,
-        code = null, 
-        name = null, 
-        supplierId = null, 
-        supplier = null, 
-        categoryId = null, 
-        category = null, 
-        fromPrice = null, 
-        toPrice = null, 
+        code = null,
+        name = null,
+        supplierId = null,
+        supplier = null,
+        categoryId = null,
+        category = null,
+        fromPrice = null,
+        toPrice = null,
         sortBy = null,
         isHidden = null
     } = req.query
-    
+
 
     let offset = !pageNum || parseInt(pageNum) < 1 ? 0 : (parseInt(pageNum) - 1) * pageSize;
     let fetchNext = pageSize < 0 ? 0 : parseInt(pageSize)
@@ -76,11 +85,18 @@ const getProduct = async (req, res) =>{
 
     sqlConnection(sql, params, STOREPROCEDURES.GETPRODUCTOVR)
         .then(output => {
-            
+
 
             var recordSet = output.recordsets[0]
-
-            res.json({total: output.output.totalRows, data: recordSet})
+            recordSet.forEach(record => {
+                if (record.images && record.images[0] !== 'h') {
+                    // Assuming images are separated by commas within the image field
+                    const elements = record.images.split(',');
+                    const updatedElements = elements.map(element => `http://localhost:${process.env.PORT}${element}`);
+                    record.images = updatedElements.join(',');
+                }
+            });
+            res.json({ total: output.output.totalRows, data: recordSet })
         })
         .catch(err => {
             console.log('errr: ', err)
@@ -90,7 +106,7 @@ const getProduct = async (req, res) =>{
 
 
 
-const updateProduct = async (req, res) =>{
+const updateProduct = async (req, res) => {
 
     const {
         productId = null,
@@ -102,13 +118,13 @@ const updateProduct = async (req, res) =>{
         unitPrice = null,
         productImages = null
     } = req.body
-    
-    if(!productId){
+
+    if (!productId) {
         res.json(new Response(-1, 'ProductId not to be provided'))
         return
     }
 
-    if(!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id || !res.locals.userData.user.isAdmin){
+    if (!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id || !res.locals.userData.user.isAdmin) {
         res.json(new Response(-1, 'Unauthorized'))
         return
     }
@@ -128,13 +144,13 @@ const updateProduct = async (req, res) =>{
 
     sqlConnection(sql, params, STOREPROCEDURES.ADMIN_UPDATEPRODUCT)
         .then(output => {
-            
-            var {returnCode, returnMessage} = output.output
 
-            if(parseInt(returnCode) == 0){
+            var { returnCode, returnMessage } = output.output
+
+            if (parseInt(returnCode) == 0) {
                 res.json(new Response(0, 'Success'))
                 return
-            } 
+            }
             res.json(new Response(-1, returnMessage))
             return
         })
@@ -146,25 +162,25 @@ const updateProduct = async (req, res) =>{
 
 
 
-const showHideProduct = async (req, res) =>{
+const showHideProduct = async (req, res) => {
 
     const {
         productId = null,
         productCode = null,
         isShow = null
     } = req.body
-    
-    if(!productId && !productCode ){
+
+    if (!productId && !productCode) {
         res.json(new Response(-1, 'Product Info not to be provided'))
         return
     }
 
-    if(isShow == null){
+    if (isShow == null) {
         res.json(new Response(-1, 'isShow not be provided'))
         return
     }
 
-    if(!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id || !res.locals.userData.user.isAdmin){
+    if (!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id || !res.locals.userData.user.isAdmin) {
         res.json(new Response(-1, 'Unauthorized'))
         return
     }
@@ -178,14 +194,14 @@ const showHideProduct = async (req, res) =>{
 
     sqlConnection(sql, params, parseInt(isShow) == 1 ? STOREPROCEDURES.ADMIN_SHOWPRODUCT : STOREPROCEDURES.ADMIN_HIDEPRODUCT)
         .then(output => {
-            var {returnCode, returnMessage} = output.output
+            var { returnCode, returnMessage } = output.output
 
             console.log(returnCode, returnMessage)
 
-            if(parseInt(returnCode) == 0){
+            if (parseInt(returnCode) == 0) {
                 res.json(new Response(0, 'Success'))
                 return
-            } 
+            }
             res.json(new Response(-1, returnMessage))
             return
         })
@@ -211,13 +227,13 @@ const showHideProduct = async (req, res) =>{
 //         categoryId = null } = req.body
 
 
-    
+
 
 //     if(!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id || !res.locals.userData.user.isAdmin){
 //         res.json(new Response(-1, 'Unauthorized'))
 //         return
 //     }
-    
+
 //     if(!productName || !quantity || !color || !price || !supplierId || !categoryId || !unitPrice){
 //         res.json(new Response(-1, 'productName, quantity, color, price, supplierId, categoryId and unitPrice are required'))
 //         return
@@ -240,7 +256,7 @@ const showHideProduct = async (req, res) =>{
 //     ]
 
 
-    
+
 //     sqlConnection(sql, params, STOREPROCEDURES.ADMIN_ADDPRODUCT)
 //         .then(output => {
 //             var {returnCode, returnMessage} = output.output
@@ -264,7 +280,7 @@ const showHideProduct = async (req, res) =>{
 
 const addProduct = async (req, res) => {
 
-    const { 
+    const {
         productName = null,
         price = null,
         discount = null,
@@ -283,12 +299,12 @@ const addProduct = async (req, res) => {
     console.log(req.body)
 
 
-    if(!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id || !res.locals.userData.user.isAdmin){
+    if (!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id || !res.locals.userData.user.isAdmin) {
         res.json(new Response(-1, 'Unauthorized'))
         return
     }
-    
-    if(productName == null || quantity == null  || price == null || supplierId == null || categoryId == null || unitPrice == null){
+
+    if (productName == null || quantity == null || price == null || supplierId == null || categoryId == null || unitPrice == null) {
         res.json(new Response(-1, 'productName, quantity, price, supplierId, categoryId and unitPrice are required'))
         return
     }
@@ -299,7 +315,7 @@ const addProduct = async (req, res) => {
     // ;/uploads/
 
     console.log("images: ", images)
-    
+
 
     const params = [
         new SqlParameter('name', sql.NVarChar(200), productName),
@@ -319,17 +335,17 @@ const addProduct = async (req, res) => {
     ]
 
 
-    
+
     sqlConnection(sql, params, STOREPROCEDURES.ADMIN_ADDPRODUCT)
         .then(output => {
-            var {returnCode, returnMessage} = output.output
+            var { returnCode, returnMessage } = output.output
 
             console.log(returnCode, returnMessage)
 
-            if(parseInt(returnCode) == 0){
+            if (parseInt(returnCode) == 0) {
                 res.json(new Response(0, 'Success'))
                 return
-            } 
+            }
             res.json(new Response(-1, returnMessage))
             return
         })
@@ -344,15 +360,15 @@ const addProduct = async (req, res) => {
 
 const deleteProduct = async (req, res) => {
 
-    const { productId = null, productCode = null} = req.body
+    const { productId = null, productCode = null } = req.body
 
-    
-    if(!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id || !res.locals.userData.user.isAdmin){
+
+    if (!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id || !res.locals.userData.user.isAdmin) {
         res.json(new Response(-1, 'Unauthorized'))
         return
     }
-    
-    if(!productId && !productCode){
+
+    if (!productId && !productCode) {
         res.json(new Response(-1, 'ProductId and ProductCode are not provided'))
         return
     }
@@ -365,17 +381,17 @@ const deleteProduct = async (req, res) => {
     ]
 
 
-    
+
     sqlConnection(sql, params, STOREPROCEDURES.ADMIN_DELETEPRODUCT)
         .then(output => {
-            var {returnCode, returnMessage} = output.output
+            var { returnCode, returnMessage } = output.output
 
             console.log(returnCode, returnMessage)
 
-            if(parseInt(returnCode) == 0){
+            if (parseInt(returnCode) == 0) {
                 res.json(new Response(0, 'Success'))
                 return
-            } 
+            }
             res.json(new Response(-1, returnMessage))
             return
         })

@@ -1,4 +1,4 @@
-const {STOREPROCEDURES} = require('../dbQuery/mssql');
+const { STOREPROCEDURES } = require('../dbQuery/mssql');
 const sql = require('mssql');
 const SqlParameter = require('../models/param');
 const { sqlConnection } = require('../utils/dbUtils');
@@ -20,30 +20,30 @@ const makingOrderFromCart = async (req, res) => {
     } = req.body
 
 
-    if(cartItemsIds == null || cartItemsIds.length == 0 || paymentType == null || shippingFee == null){
+    if (cartItemsIds == null || cartItemsIds.length == 0 || paymentType == null || shippingFee == null) {
         res.json(new Response(-1, "productIds, paymentType and shippingFee are requiried"))
         return
     }
 
-    if(!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id ){
+    if (!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id) {
         res.json(new Response(-1, 'Unauthorized'))
         return
     }
-    
-    if(res.locals.userData.user.isAdmin){
+
+    if (res.locals.userData.user.isAdmin) {
         res.json(new Response(-1, "Admin is not privided"))
         return
     }
-    
+
     const today = new Date()
     const shippingDate = new Date()
-    today.setDate(today.getDate() +Math.random()*5)
+    today.setDate(today.getDate() + Math.random() * 5)
 
     const customerId = res.locals.userData.user.id
 
     const pcartItemsIds = cartItemsIds.reduce((prev, curr) => prev + "," + curr, "").slice(1);
 
-    if(!isAllNumber(pcartItemsIds, [','])){
+    if (!isAllNumber(pcartItemsIds, [','])) {
         res.json(new Response(-1, "Ids is not allow to be Characters"))
         return
     }
@@ -64,14 +64,14 @@ const makingOrderFromCart = async (req, res) => {
         new SqlParameter("returnCode", sql.Int, null, "OUTPUT"),
         new SqlParameter("returnMessage", sql.NVarChar(sql.MAX), null, "OUTPUT"),
     ]
-    
+
     sqlConnection(sql, params, STOREPROCEDURES.MAKINGORDERFROMCART)
-        .then( output => {
-            const {returnCode, returnMessage} = output.output
+        .then(output => {
+            const { returnCode, returnMessage } = output.output
 
             console.log(returnCode, returnMessage)
-            
-            if(parseInt(returnCode) == -1){     
+
+            if (parseInt(returnCode) == -1) {
                 res.json(new Response(-1, returnMessage))
                 return
             }
@@ -79,7 +79,7 @@ const makingOrderFromCart = async (req, res) => {
             res.json(new Response(0, 'Success'))
             return
         })
-        .catch(err=>{
+        .catch(err => {
             res.json(new Response(-1, 'Error: ' + err))
             return
         })
@@ -103,56 +103,56 @@ const makingOrderQuickly = async (req, res) => {
     } = req.body
 
 
-    if(productId == null || paymentType == null || shippingFee == null){
+    if (productId == null || paymentType == null || shippingFee == null) {
         res.json(new Response(-1, "productId, paymentType and shippingFee are requiried"))
         return
     }
 
-    if(!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id ){
+    if (!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id) {
         res.json(new Response(-1, 'Unauthorized'))
         return
     }
-    
-    if(res.locals.userData.user.isAdmin){
+
+    if (res.locals.userData.user.isAdmin) {
         res.json(new Response(-1, "Admin is not privided"))
         return
     }
 
-    if(quantity <= 0){
+    if (quantity <= 0) {
         res.json(new Response(-1, "Quantity > 1"))
         return
     }
-    
+
     const today = new Date()
     const shippingDate = new Date()
-    today.setDate(today.getDate() +Math.random()*5)
+    today.setDate(today.getDate() + Math.random() * 5)
 
     const customerId = res.locals.userData.user.id
 
     const params = [
-        new SqlParameter("productId", sql.Int, productId), 
-        new SqlParameter("customerId", sql.Int, customerId), 
-        new SqlParameter("quantity", sql.Int, quantity), 
-        new SqlParameter("paymentType", sql.Int, paymentType), 
-        new SqlParameter("paymentStatus", sql.Int, paymentStatus), 
-        new SqlParameter("shippingCity", sql.NVarChar(sql.MAX), shippingCity), 
-        new SqlParameter("shippingRegion", sql.NVarChar(sql.MAX), shippingRegion), 
-        new SqlParameter("shippingAddress", sql.NVarChar(sql.MAX), shippingAddress), 
-        new SqlParameter("shippingDate", sql.DateTime, shippingDate), 
-        new SqlParameter("shippingFee", sql.Float, shippingFee), 
-        new SqlParameter("note", sql.NVarChar(sql.MAX), note), 
+        new SqlParameter("productId", sql.Int, productId),
+        new SqlParameter("customerId", sql.Int, customerId),
+        new SqlParameter("quantity", sql.Int, quantity),
+        new SqlParameter("paymentType", sql.Int, paymentType),
+        new SqlParameter("paymentStatus", sql.Int, paymentStatus),
+        new SqlParameter("shippingCity", sql.NVarChar(sql.MAX), shippingCity),
+        new SqlParameter("shippingRegion", sql.NVarChar(sql.MAX), shippingRegion),
+        new SqlParameter("shippingAddress", sql.NVarChar(sql.MAX), shippingAddress),
+        new SqlParameter("shippingDate", sql.DateTime, shippingDate),
+        new SqlParameter("shippingFee", sql.Float, shippingFee),
+        new SqlParameter("note", sql.NVarChar(sql.MAX), note),
         new SqlParameter("voucherCode", sql.NVarChar(200), voucherCode),
         new SqlParameter("returnCode", sql.Int, null, "OUTPUT"),
         new SqlParameter("returnMessage", sql.NVarChar(sql.MAX), null, "OUTPUT"),
     ]
-    
+
     sqlConnection(sql, params, STOREPROCEDURES.MAKINGORDERQUICKLY)
-        .then( output => {
-            const {returnCode, returnMessage} = output.output
+        .then(output => {
+            const { returnCode, returnMessage } = output.output
 
             console.log(returnCode, returnMessage)
 
-            if(parseInt(returnCode) == -1){     
+            if (parseInt(returnCode) == -1) {
                 res.json(new Response(-1, returnMessage))
                 return
             }
@@ -160,7 +160,7 @@ const makingOrderQuickly = async (req, res) => {
             res.json(new Response(0, 'Success'))
             return
         })
-        .catch(err=>{
+        .catch(err => {
             res.json(new Response(-1, 'Error: ' + err))
             return
         })
@@ -168,12 +168,12 @@ const makingOrderQuickly = async (req, res) => {
 }
 
 const getOrders = async (req, res) => {
-    if(!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id ){
+    if (!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id) {
         res.json(new Response(-1, 'Unauthorized'))
         return
     }
-    
-    if(res.locals.userData.user.isAdmin){
+
+    if (res.locals.userData.user.isAdmin) {
         res.json(new Response(-1, "Admin is not privided"))
         return
     }
@@ -185,6 +185,15 @@ const getOrders = async (req, res) => {
     sqlConnection(sql, params, STOREPROCEDURES.GETORDERS)
         .then(output => {
             const result = output.recordsets[0]
+
+            result.forEach(record => {
+                if (record.path && record.path[0] !== 'h') {
+                    // Assuming path are separated by commas within the image field
+                    const elements = record.path.split(',');
+                    const updatedElements = elements.map(element => `http://localhost:${process.env.PORT}${element}`);
+                    record.path = updatedElements.join(',');
+                }
+            });
             res.json(result)
             return
         })
@@ -197,12 +206,12 @@ const getOrders = async (req, res) => {
 
 
 const getOrdersAdmin = async (req, res) => {
-    if(!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id || !res.locals.userData.user.isAdmin){
+    if (!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id || !res.locals.userData.user.isAdmin) {
         res.json(new Response(-1, 'Unauthorized'))
         return
     }
 
-    const {id = null} = req.query 
+    const { id = null } = req.query
 
     const params = [new SqlParameter("id", sql.Int, id)]
 
@@ -221,32 +230,36 @@ const getOrdersAdmin = async (req, res) => {
 
 
 const getOrderItems = async (req, res) => {
-    if(!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id ){
+    if (!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id) {
         res.json(new Response(-1, 'Unauthorized'))
         return
     }
 
     const customerId = res.locals.userData.user.id
 
-    let params = [new SqlParameter("customerId", sql.Int, customerId)]
+    const { orderId } = req.query
 
-    if(res.locals.userData.user.isAdmin){
-        const {orderId = null} = req.query
-        if(orderId == null){
-            res.json(new Response(-1, 'orderId is not null'))
-            return;
-        } 
+    let params = [new SqlParameter("orderId", sql.Int, orderId)]
 
-        params = [new SqlParameter("orderId", sql.Int, orderId)]
-
+    if(!res.locals.userData.user.isAdmin){
+        params.push(new SqlParameter("customerId", sql.Int, customerId))
     }
 
-    
+
+    console.log(res.locals.userData, params)
+
 
     sqlConnection(sql, params, STOREPROCEDURES.GETORDERITEMS)
         .then(output => {
             const result = output.recordsets[0]
-            
+            result.forEach(record => {
+                if (record.path && record.path[0] !== 'h') {
+                    // Assuming path are separated by commas within the image field
+                    const elements = record.path.split(',');
+                    const updatedElements = elements.map(element => `http://localhost:${process.env.PORT}${element}`);
+                    record.path = updatedElements.join(',');
+                }
+            });
             res.json(result)
             return
         })
@@ -257,19 +270,19 @@ const getOrderItems = async (req, res) => {
 }
 
 const cancelOrder = async (req, res) => {
-    const {orderId = null} = req.body
+    const { orderId = null } = req.body
 
-    if(!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id ){
+    if (!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id) {
         res.json(new Response(-1, 'Unauthorized'))
         return
     }
-    
-    if(res.locals.userData.user.isAdmin){
+
+    if (res.locals.userData.user.isAdmin) {
         res.json(new Response(-1, "Admin is not privided"))
         return
     }
 
-    if(orderId == null){
+    if (orderId == null) {
         res.json(new Response(-1, "orderId has to be provided"))
         return
     }
@@ -287,8 +300,8 @@ const cancelOrder = async (req, res) => {
 
     sqlConnection(sql, params, STOREPROCEDURES.CANCELORDER)
         .then(output => {
-            const {returnCode, returnMessage} = output.output
-            if(returnCode == 0){
+            const { returnCode, returnMessage } = output.output
+            if (returnCode == 0) {
                 res.json(new Response(0, "Cancellation request sent, waiting for the confirmation of the seller"))
                 return
             }
@@ -301,22 +314,22 @@ const cancelOrder = async (req, res) => {
 
 
 const changeOrderStatus = async (req, res) => {
-    const {customerId, orderId, orderStatus = null, paymentStatus = null} = req.body
+    const { customerId, orderId, orderStatus = null, paymentStatus = null } = req.body
 
-    if(!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id || !res.locals.userData.user.isAdmin ){
+    if (!res.locals.userData || !res.locals.userData.user || !res.locals.userData.user.id || !res.locals.userData.user.isAdmin) {
         res.json(new Response(-1, 'Unauthorized'))
         return
     }
-    
+
     // console.log(customerId, orderId, orderStatus, paymentStatus)
 
-    if(customerId == null || orderId == null){
+    if (customerId == null || orderId == null) {
         res.json(new Response(-1, "orderId has to be provided"))
         return
     }
 
 
-    if(orderStatus == null && paymentStatus == null){
+    if (orderStatus == null && paymentStatus == null) {
         res.json(new Response(-1, "nothing changes"))
         return
     }
@@ -334,8 +347,8 @@ const changeOrderStatus = async (req, res) => {
 
     sqlConnection(sql, params, STOREPROCEDURES.CHANGEORDERSTATUS)
         .then(output => {
-            const {returnCode, returnMessage} = output.output
-            if(returnCode == 0){
+            const { returnCode, returnMessage } = output.output
+            if (returnCode == 0) {
                 res.json(new Response(0, "Success"))
                 return
             }
@@ -348,4 +361,4 @@ const changeOrderStatus = async (req, res) => {
 
 
 
-module.exports = {makingOrderFromCart, makingOrderQuickly, getOrderItems, getOrders, cancelOrder, getOrdersAdmin, changeOrderStatus}
+module.exports = { makingOrderFromCart, makingOrderQuickly, getOrderItems, getOrders, cancelOrder, getOrdersAdmin, changeOrderStatus }

@@ -23,6 +23,14 @@ const getCartItem = async (req, res) => {
     sqlConnection(sql, params, STOREPROCEDURES.GETCARTITEMS)
         .then(output => {
             let recordSet = output.recordsets[0]
+            recordSet.forEach(record => {
+                if (record.path && record.path[0] !== 'h') {
+                    // Assuming path are separated by commas within the image field
+                    const elements = record.path.split(',');
+                    const updatedElements = elements.map(element => `http://localhost:${process.env.PORT}${element}`);
+                    record.path = updatedElements.join(',');
+                }
+            });
             res.json(recordSet)
         })
         .catch( err => {
